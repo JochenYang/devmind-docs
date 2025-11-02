@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface CodeBlockProps {
   code: string;
@@ -12,6 +13,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   showLineNumbers = false,
 }) => {
   const [copied, setCopied] = useState(false);
+  const { language: lang } = useLanguage();
 
   const handleCopy = async () => {
     try {
@@ -25,6 +27,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
   const lines = code.split("\n");
 
+  const copyText = lang === "zh" ? "复制" : "Copy";
+  const copiedText = lang === "zh" ? "已复制" : "Copied";
+  const copyTitle = copied
+    ? copiedText + "!"
+    : lang === "zh"
+    ? "复制代码"
+    : "Copy code";
+
   return (
     <div className="relative group">
       <div className="bg-white p-6 border border-gray-300">
@@ -33,7 +43,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           <button
             onClick={handleCopy}
             className="absolute top-2 right-2 px-3 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all opacity-0 group-hover:opacity-100"
-            title={copied ? "已复制!" : "复制代码"}
+            title={copyTitle}
           >
             {copied ? (
               <span className="flex items-center gap-1">
@@ -50,7 +60,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                已复制
+                {copiedText}
               </span>
             ) : (
               <span className="flex items-center gap-1">
@@ -67,7 +77,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                   />
                 </svg>
-                复制
+                {copyText}
               </span>
             )}
           </button>

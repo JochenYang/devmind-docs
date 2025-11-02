@@ -1,138 +1,105 @@
-# DevMind MCP Documentation Website
+# DevMind MCP Documentation
 
-Official documentation website for [DevMind MCP](https://github.com/JochenYang/Devmind) - An intelligent context-aware memory system for AI assistants.
+Official documentation website for DevMind MCP - Intelligent Context-Aware Memory System for Development.
 
-## 🌐 Live Site
+## About
 
-Visit the documentation at: **[YOUR_GITHUB_USERNAME.github.io/devmind-docs](https://YOUR_GITHUB_USERNAME.github.io/devmind-docs)**
+This is the documentation site for DevMind MCP, built with React, TypeScript, and Vite. It provides comprehensive guides, API references, and examples for using DevMind MCP.
 
-## ✨ Features
+## Features
 
-- 📚 Complete documentation for 18 MCP tools
-- 🌍 Full bilingual support (Chinese/English)
-- 🎨 Swiss design system
-- 📱 Responsive layout
-- 🔍 Built-in search functionality
-- ⚡ Fast static site built with Vite + React
+- Bilingual support (English/Chinese)
+- Responsive design
+- Interactive code examples with copy functionality
+- Comprehensive MCP tools documentation
+- CLI command reference
+- Configuration guides
 
-## 🚀 Quick Start
+## Development
 
-### Development
+### Prerequisites
+
+- Node.js >= 18.0.0
+- pnpm (recommended) or npm
+
+### Installation
 
 ```bash
 # Install dependencies
+pnpm install
+
+# or using npm
 npm install
-
-# Start development server
-npm run dev
-
-# Open http://localhost:5173
 ```
+
+### Local Development
+
+```bash
+# Start development server
+pnpm dev
+
+# or using npm
+npm run dev
+```
+
+The site will be available at `http://localhost:5173`
 
 ### Build
 
 ```bash
 # Build for production
-npm run build
+pnpm build
 
-# Preview production build
+# or using npm
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+# Preview production build locally
+pnpm preview
+
+# or using npm
 npm run preview
 ```
 
-## 📖 Documentation Structure
+## Deployment
 
-- **Home** - Overview and quick start
-- **Getting Started** - Installation and configuration
-- **MCP Tools** - 18 MCP tools reference
-- **CLI Reference** - Command-line interface guide
-- **Configuration** - Configuration options
-- **API Reference** - JavaScript/TypeScript API
-- **Use Cases** - Real-world usage scenarios
-- **FAQ** - Frequently asked questions
+This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
 
-## 🌍 Multilingual Support
+### Manual Deployment
 
-The website supports full bilingual content:
-- 🇨🇳 Chinese (Simplified)
-- 🇬🇧 English
+If you need to deploy manually:
 
-Language preference is saved in localStorage and persists across sessions.
+1. Build the project: `pnpm build`
+2. The `dist` folder contains the static files
+3. Deploy the `dist` folder to your hosting service
 
-## 🛠️ Tech Stack
-
-- **Framework**: React 18 + TypeScript
-- **Build Tool**: Vite 6
-- **Routing**: React Router 6
-- **Styling**: Tailwind CSS
-- **Package Manager**: pnpm
-- **Deployment**: GitHub Pages
-
-## 📦 Project Structure
+## Project Structure
 
 ```
 devmind-docs/
+├── public/              # Static assets
 ├── src/
-│   ├── components/       # Reusable components
-│   │   ├── Layout.tsx
-│   │   ├── LanguageSwitcher.tsx
-│   │   └── SearchTrigger.tsx
-│   ├── pages/           # Page components
-│   │   ├── HomePage.tsx
-│   │   ├── GettingStartedPage.tsx
-│   │   ├── ToolsPage.tsx
-│   │   ├── CliReferencePage.tsx
-│   │   ├── ConfigurationPage.tsx
-│   │   ├── ApiReferencePage.tsx
-│   │   ├── UseCasesPage.tsx
-│   │   └── FAQPage.tsx
-│   ├── data/            # Data and translations
-│   │   ├── sourceData.ts
-│   │   ├── configurationData.ts
-│   │   └── translationMappings.ts
-│   ├── i18n/            # Internationalization
-│   │   ├── LanguageContext.tsx
-│   │   └── translations.ts
-│   └── App.tsx
-├── scripts/
-│   └── fetch-version.js  # Fetch latest version from npm
+│   ├── components/      # React components
+│   ├── data/           # Data files and translations
+│   ├── i18n/           # Internationalization
+│   ├── pages/          # Page components
+│   └── App.tsx         # Main app component
 ├── .github/
-│   └── workflows/
-│       └── deploy.yml    # GitHub Actions deployment
-└── public/
+│   └── workflows/      # GitHub Actions
+└── package.json
 ```
 
-## 🔄 Automatic Deployment
+## Links
 
-The website automatically deploys to GitHub Pages when:
-- Code is pushed to the `main` branch
-- Manual workflow dispatch is triggered
+- Main Repository: https://github.com/JochenYang/Devmind
+- Documentation Site: https://jochenyang.github.io/devmind-docs/
+- npm Package: https://www.npmjs.com/package/devmind-mcp
 
-The deployment workflow:
-1. Fetches the latest version from npm
-2. Installs dependencies with pnpm
-3. Builds the production bundle
-4. Deploys to GitHub Pages
+## License
 
-## 🔗 Related Links
-
-- Main Repository: [DevMind MCP](https://github.com/JochenYang/Devmind)
-- npm Package: [devmind-mcp](https://www.npmjs.com/package/devmind-mcp)
-- Issues: [GitHub Issues](https://github.com/JochenYang/Devmind/issues)
-
-## 📝 License
-
-MIT License - Same as the main DevMind MCP project
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📧 Contact
-
-For questions or feedback, please open an issue in the [main repository](https://github.com/JochenYang/Devmind/issues).
+MIT License - see the main repository for details.

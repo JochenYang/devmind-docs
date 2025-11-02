@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PROJECT_INFO } from "../data/sourceData";
 import { useLanguage } from "../i18n/LanguageContext";
+import CodeBlock from "../components/CodeBlock";
 
 const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -170,15 +171,18 @@ const HomePage: React.FC = () => {
                     ? "1. 配置MCP客户端"
                     : "1. Configure MCP Client"}
                 </div>
-                <div className="font-mono text-xs bg-gray-50 p-3 border border-gray-200 overflow-x-auto mb-3">
-                  <pre>{`{
+                <div className="mb-3">
+                  <CodeBlock
+                    code={`{
   "mcpServers": {
     "devmind": {
       "command": "npx",
       "args": ["-y", "devmind-mcp@latest"]
     }
   }
-}`}</pre>
+}`}
+                    language="json"
+                  />
                 </div>
                 <div className="text-sm font-medium text-black mb-2">
                   {language === "zh" ? "2. 重启客户端" : "2. Restart Client"}
@@ -222,19 +226,15 @@ const HomePage: React.FC = () => {
                 <div className="text-sm font-medium text-black mb-3">
                   {language === "zh" ? "安装" : "Install"}
                 </div>
-                <div className="font-mono text-sm bg-gray-50 p-4 border border-gray-200 mb-3">
-                  <div className="text-gray-800">
-                    $ npm install -g devmind-mcp
-                  </div>
+                <div className="mb-3">
+                  <CodeBlock code="npm install -g devmind-mcp" />
                 </div>
                 <div className="text-sm font-medium text-black mb-2">
                   {language === "zh" ? "使用" : "Usage"}
                 </div>
-                <div className="font-mono text-sm bg-gray-50 p-4 border border-gray-200">
-                  <div className="text-gray-800">$ devmind init</div>
-                  <div className="text-gray-800">$ devmind start</div>
-                  <div className="text-gray-800">$ devmind search "query"</div>
-                </div>
+                <CodeBlock
+                  code={`devmind init\ndevmind start\ndevmind search "query"`}
+                />
               </div>
               <div className="text-left">
                 <div className="text-xs text-gray-500 mb-2">
