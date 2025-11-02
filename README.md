@@ -97,7 +97,7 @@ devmind-docs/
 ## Links
 
 - Main Repository: https://github.com/JochenYang/Devmind
-- Documentation Site: https://jochenyang.github.io/devmind-docs/
+- Documentation Site: https://jochenyang.github.io/devmind-docs/#/
 - npm Package: https://www.npmjs.com/package/devmind-mcp
 
 ## License
