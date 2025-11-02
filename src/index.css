@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Swiss Design 基础样式 */
+@layer base {
+  html {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #FFFFFF;
+    color: #333333;
+    line-height: 1.5;
+  }
+  
+  /* 代码字体 */
+  code, pre {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 0;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+  }
+}
+
+/* Swiss Design 组件样式 */
+@layer components {
+  /* 按钮样式 */
+  .btn-primary {
+    @apply bg-red-600 text-white px-6 py-3 font-bold text-sm uppercase tracking-wider hover:bg-red-700 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply border border-black text-black px-6 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-colors;
+  }
+  
+  /* 卡片样式 */
+  .card {
+    @apply bg-white p-8 border border-gray-300;
+  }
+  
+  .card:hover {
+    @apply border-black transition-colors;
+  }
+  
+  /* 代码块样式 */
+  .code-block {
+    @apply bg-gray-100 p-6 border border-gray-300 font-mono text-sm;
+  }
+  
+  /* 导航链接样式 */
+  .nav-link {
+    @apply text-gray-600 hover:text-black transition-colors;
+  }
+  
+  .nav-link.active {
+    @apply text-red-600 font-medium;
+  }
+  
+  /* 表格样式 */
+  .table {
+    @apply w-full border-collapse;
+  }
+  
+  .table th {
+    @apply bg-gray-200 text-left p-4 text-sm font-medium text-black;
+  }
+  
+  .table td {
+    @apply p-4 text-sm text-gray-700 border-t border-gray-300;
+  }
+}
+
+/* Swiss Design 工具类 */
+@layer utilities {
+  /* 文本对齐 */
+  .text-flush-left {
+    text-align: left;
+  }
+  
+  /* 间距工具类 */
+  .space-swiss > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* 边框工具类 */
+  .border-swiss {
+    border: 1px solid #CCCCCC;
+  }
+  
+  .border-swiss-thick {
+    border: 3px solid #000000;
+  }
+  
+  .border-swiss-accent {
+    border-left: 4px solid #DC143C;
+  }
+  
+  /* 阴影工具类 */
+  .shadow-swiss {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* 过渡工具类 */
+  .transition-swiss {
+    transition: all 200ms linear;
+  }
+  
+  /* 焦点样式 */
+  .focus-swiss {
+    @apply outline-none border-2 border-swiss-black;
+  }
+  
+  /* 减少动效支持 */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* 自定义组件样式 */
+.swiss-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.swiss-reading-width {
+  max-width: 700px;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 768px) {
+  .text-display {
+    font-size: 36px !important;
+  }
+  
+  .text-headline {
+    font-size: 28px !important;
+  }
+  
+  .text-subhead {
+    font-size: 20px !important;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    color: #000000 !important;
+    background: #FFFFFF !important;
+  }
+  
+  .card {
+    border: 1px solid #000000 !important;
+  }
+}

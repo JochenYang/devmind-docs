@@ -1,0 +1,148 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "DevMind MCP Documentation - Swiss Design System",
+    "style": "Swiss Design (International Typographic Style)",
+    "updated": "2025-11-02"
+  },
+  "color": {
+    "achromatic": {
+      "black": { "value": "#000000", "type": "color", "description": "Primary headings, rules, logo" },
+      "charcoal": { "value": "#1A1A1A", "type": "color", "description": "Secondary headings" },
+      "text": {
+        "primary": { "value": "#333333", "type": "color", "description": "Body text" },
+        "secondary": { "value": "#666666", "type": "color", "description": "Captions, labels" },
+        "tertiary": { "value": "#999999", "type": "color", "description": "Metadata, disabled" }
+      },
+      "border": { "value": "#CCCCCC", "type": "color", "description": "Borders, dividers" },
+      "surface": {
+        "subtle": { "value": "#E5E5E5", "type": "color", "description": "Card backgrounds" },
+        "base": { "value": "#F5F5F5", "type": "color", "description": "Code blocks, secondary backgrounds" }
+      },
+      "background": { "value": "#FFFFFF", "type": "color", "description": "Primary background" }
+    },
+    "accent": {
+      "base": { "value": "#DC143C", "type": "color", "description": "CTA buttons, active links (5% usage)" },
+      "dark": { "value": "#A01028", "type": "color", "description": "Hover states, pressed states" }
+    },
+    "dark-mode": {
+      "background": {
+        "primary": { "value": "#0A0A0A", "type": "color", "description": "Dark mode primary background" },
+        "surface": { "value": "#1A1A1A", "type": "color", "description": "Dark mode cards, code blocks" },
+        "elevated": { "value": "#2A2A2A", "type": "color", "description": "Dark mode hover, inputs" }
+      },
+      "text": {
+        "primary": { "value": "#FFFFFF", "type": "color", "description": "Dark mode body text" },
+        "secondary": { "value": "#CCCCCC", "type": "color", "description": "Dark mode captions" },
+        "tertiary": { "value": "#999999", "type": "color", "description": "Dark mode metadata" }
+      },
+      "border": { "value": "#333333", "type": "color", "description": "Dark mode borders" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "primary": {
+        "value": "'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif",
+        "type": "fontFamily",
+        "description": "Primary font stack"
+      },
+      "code": {
+        "value": "'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace",
+        "type": "fontFamily",
+        "description": "Monospace font for code"
+      }
+    },
+    "fontSize": {
+      "display": { "value": "56px", "type": "dimension", "description": "Page titles (H1)" },
+      "headline": { "value": "40px", "type": "dimension", "description": "Section headers (H2)" },
+      "subhead": { "value": "28px", "type": "dimension", "description": "Subsections (H3)" },
+      "body-large": { "value": "20px", "type": "dimension", "description": "Introductions, emphasis" },
+      "body": { "value": "16px", "type": "dimension", "description": "Body text" },
+      "small": { "value": "14px", "type": "dimension", "description": "Labels, metadata" },
+      "caption": { "value": "12px", "type": "dimension", "description": "Footnotes, credits" },
+      "code": { "value": "14px", "type": "dimension", "description": "Code blocks" }
+    },
+    "fontWeight": {
+      "regular": { "value": "400", "type": "fontWeight", "description": "Body text" },
+      "medium": { "value": "500", "type": "fontWeight", "description": "Subheadings, nav links" },
+      "bold": { "value": "700", "type": "fontWeight", "description": "Headings, buttons" }
+    },
+    "lineHeight": {
+      "tight": { "value": "1.1", "type": "number", "description": "Display headings" },
+      "heading": { "value": "1.2", "type": "number", "description": "Section headings" },
+      "subhead": { "value": "1.3", "type": "number", "description": "Subsection headings" },
+      "body": { "value": "1.5", "type": "number", "description": "Body text" },
+      "relaxed": { "value": "1.6", "type": "number", "description": "Body large, code blocks" }
+    },
+    "letterSpacing": {
+      "tight": { "value": "-0.02em", "type": "dimension", "description": "Display text" },
+      "tighter": { "value": "-0.01em", "type": "dimension", "description": "Headlines" },
+      "normal": { "value": "0", "type": "dimension", "description": "Body text" },
+      "wide": { "value": "0.01em", "type": "dimension", "description": "Captions" },
+      "wider": { "value": "0.05em", "type": "dimension", "description": "Buttons, nav (uppercase)" }
+    }
+  },
+  "spacing": {
+    "xs": { "value": "8px", "type": "dimension", "description": "Inline spacing (icon + text)" },
+    "sm": { "value": "16px", "type": "dimension", "description": "Related elements, list items" },
+    "md": { "value": "24px", "type": "dimension", "description": "Paragraph spacing, small card padding" },
+    "lg": { "value": "32px", "type": "dimension", "description": "Section padding, form spacing" },
+    "xl": { "value": "48px", "type": "dimension", "description": "Major section spacing" },
+    "2xl": { "value": "64px", "type": "dimension", "description": "Page blocks, navigation height" },
+    "3xl": { "value": "96px", "type": "dimension", "description": "Section dividers, hero areas" }
+  },
+  "borderRadius": {
+    "none": { "value": "0px", "type": "dimension", "description": "Cards, images (default)" },
+    "subtle": { "value": "2px", "type": "dimension", "description": "Buttons, inputs" },
+    "sm": { "value": "4px", "type": "dimension", "description": "Small components (max value)" }
+  },
+  "borderWidth": {
+    "thin": { "value": "1px", "type": "dimension", "description": "Standard borders" },
+    "thick": { "value": "3px", "type": "dimension", "description": "Emphasis borders" },
+    "accent": { "value": "4px", "type": "dimension", "description": "Sidebar accent bar" }
+  },
+  "boxShadow": {
+    "none": { "value": "none", "type": "shadow", "description": "Default (no shadow)" },
+    "subtle": {
+      "value": "0 1px 3px rgba(0, 0, 0, 0.12)",
+      "type": "shadow",
+      "description": "Cards, dropdowns (minimal use)"
+    }
+  },
+  "animation": {
+    "duration": {
+      "instant": { "value": "150ms", "type": "duration", "description": "Button hover, focus states" },
+      "fast": { "value": "200ms", "type": "duration", "description": "Page transitions, navigation" },
+      "none": { "value": "0ms", "type": "duration", "description": "Reduced motion preference" }
+    },
+    "easing": {
+      "linear": { "value": "linear", "type": "cubicBezier", "description": "Preferred easing" },
+      "ease-out": { "value": "ease-out", "type": "cubicBezier", "description": "Acceptable alternative" }
+    }
+  },
+  "layout": {
+    "container": {
+      "maxWidth": { "value": "1200px", "type": "dimension", "description": "Content max width" }
+    },
+    "sidebar": {
+      "width": { "value": "280px", "type": "dimension", "description": "Fixed sidebar navigation" }
+    },
+    "navigation": {
+      "height": { "value": "64px", "type": "dimension", "description": "Top navigation bar" }
+    },
+    "readingWidth": {
+      "optimal": { "value": "700px", "type": "dimension", "description": "50-70 characters (16px font)" }
+    },
+    "grid": {
+      "columns": { "value": "12", "type": "number", "description": "Desktop grid columns" },
+      "gutter": { "value": "24px", "type": "dimension", "description": "Column spacing" }
+    }
+  },
+  "breakpoints": {
+    "sm": { "value": "640px", "type": "dimension", "description": "Mobile landscape" },
+    "md": { "value": "768px", "type": "dimension", "description": "Tablet portrait" },
+    "lg": { "value": "1024px", "type": "dimension", "description": "Tablet landscape" },
+    "xl": { "value": "1280px", "type": "dimension", "description": "Desktop" }
+  }
+}
