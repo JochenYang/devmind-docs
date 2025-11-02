@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import HomePage from "./pages/HomePage";
 import GettingStartedPage from "./pages/GettingStartedPage";
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Router basename="/devmind-docs">
+      <Router>
         <Layout onSearchClick={() => setIsSearchOpen(true)}>
           <Routes>
             <Route path="/" element={<HomePage />} />
