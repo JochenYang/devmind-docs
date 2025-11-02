@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CLI_COMMANDS } from "../data/sourceData";
 import { useLanguage } from "../i18n/LanguageContext";
 import { CLI_COMMAND_TRANSLATIONS } from "../data/translationMappings";
+import CodeBlock from "../components/CodeBlock";
 
 const CliReferencePage: React.FC = () => {
   const { language } = useLanguage();
@@ -143,11 +144,8 @@ const CliReferencePage: React.FC = () => {
                     </h3>
                     <div className="space-y-3">
                       {cmd.examples.map((example, idx) => (
-                        <div
-                          key={idx}
-                          className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200"
-                        >
-                          $ {example}
+                        <div key={idx}>
+                          <CodeBlock code={`$ ${example}`} />
                         </div>
                       ))}
                     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PROJECT_INFO } from "../data/sourceData";
 import { useLanguage } from "../i18n/LanguageContext";
+import CodeBlock from "../components/CodeBlock";
 
 const GettingStartedPage: React.FC = () => {
   const { language } = useLanguage();
@@ -310,11 +311,7 @@ const GettingStartedPage: React.FC = () => {
                 <h3 className="text-lg font-medium text-black mb-4">
                   {content.installation.npx.title}
                 </h3>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200">
-                    <div className="mb-2">npx -y devmind-mcp@latest</div>
-                  </div>
-                </div>
+                <CodeBlock code="npx -y devmind-mcp@latest" />
                 <p className="text-sm text-gray-600 mt-3">
                   {content.installation.npx.desc}
                 </p>
@@ -324,11 +321,7 @@ const GettingStartedPage: React.FC = () => {
                 <h3 className="text-lg font-medium text-black mb-4">
                   {content.installation.global.title}
                 </h3>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200">
-                    <div className="mb-2">npm install -g devmind-mcp</div>
-                  </div>
-                </div>
+                <CodeBlock code="npm install -g devmind-mcp" />
                 <p className="text-sm text-gray-600 mt-3">
                   {content.installation.global.desc}
                 </p>
@@ -338,15 +331,9 @@ const GettingStartedPage: React.FC = () => {
                 <h3 className="text-lg font-medium text-black mb-4">
                   {content.installation.source.title}
                 </h3>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200">
-                    <div className="mb-2">
-                      git clone {PROJECT_INFO.repository}.git
-                    </div>
-                    <div className="mb-2">cd Devmind</div>
-                    <div>npm install</div>
-                  </div>
-                </div>
+                <CodeBlock
+                  code={`git clone ${PROJECT_INFO.repository}.git\ncd Devmind\nnpm install`}
+                />
                 <p className="text-sm text-gray-600 mt-3">
                   {content.installation.source.desc}
                 </p>
@@ -383,35 +370,33 @@ const GettingStartedPage: React.FC = () => {
                 <h3 className="text-lg font-medium text-black mb-4">
                   {content.configuration.step2.title}
                 </h3>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200 overflow-x-auto">
-                    <pre>{`{
+                <CodeBlock
+                  code={`{
   "mcpServers": {
     "devmind": {
       "command": "npx",
       "args": ["-y", "devmind-mcp@latest"]
     }
   }
-}`}</pre>
-                  </div>
-                </div>
+}`}
+                  language="json"
+                />
               </div>
 
               <div className="mb-8">
                 <h3 className="text-lg font-medium text-black mb-4">
                   {content.configuration.step3.title}
                 </h3>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200 overflow-x-auto">
-                    <pre>{`{
+                <CodeBlock
+                  code={`{
   "mcpServers": {
     "devmind": {
       "command": "devmind-mcp"
     }
   }
-}`}</pre>
-                  </div>
-                </div>
+}`}
+                  language="json"
+                />
               </div>
 
               <div className="mb-8">
@@ -421,25 +406,17 @@ const GettingStartedPage: React.FC = () => {
                 <p className="text-base text-gray-700 mb-4">
                   {content.configuration.step4.desc}
                 </p>
-                <div className="bg-white p-6 border border-gray-300">
-                  <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200">
-                    <div className="mb-2">
-                      #{" "}
-                      {language === "zh"
-                        ? "初始化配置"
-                        : "Initialize configuration"}
-                    </div>
-                    <div className="mb-2">devmind init</div>
-                    <div className="mb-4"></div>
-                    <div className="mb-2">
-                      #{" "}
-                      {language === "zh"
-                        ? "启动监控守护进程"
-                        : "Start monitoring daemon"}
-                    </div>
-                    <div>devmind start</div>
-                  </div>
-                </div>
+                <CodeBlock
+                  code={`# ${
+                    language === "zh"
+                      ? "初始化配置"
+                      : "Initialize configuration"
+                  }\ndevmind init\n\n# ${
+                    language === "zh"
+                      ? "启动监控守护进程"
+                      : "Start monitoring daemon"
+                  }\ndevmind start`}
+                />
               </div>
             </section>
 
