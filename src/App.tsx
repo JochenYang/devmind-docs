@@ -33,7 +33,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Router>
+      <Router basename="/devmind-docs">
         <Layout onSearchClick={() => setIsSearchOpen(true)}>
           <Routes>
             <Route path="/" element={<HomePage />} />
