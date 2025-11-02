@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm install --prefer-offline && vite",
-    "build": "pnpm install --prefer-offline && node scripts/fetch-version.js && tsc -b && vite build",
-    "build:prod": "pnpm install --prefer-offline && node scripts/fetch-version.js && tsc -b && vite build",
+    "dev": "vite",
+    "build": "node scripts/fetch-version.js && tsc -b && vite build",
+    "build:prod": "node scripts/fetch-version.js && tsc -b && vite build",
     "fetch-version": "node scripts/fetch-version.js",
-    "lint": "pnpm install --prefer-offline && eslint .",
-    "preview": "pnpm install --prefer-offline && vite preview",
-    "install-deps": "pnpm install --prefer-offline",
-    "clean": "pnpm store prune"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
