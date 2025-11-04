@@ -8,6 +8,17 @@ const ConfigurationPage: React.FC = () => {
   const data = configurationData[language];
   const configSections = data.sections;
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const ConfigTable = ({ section }: { section: any }) => (
     <div className="mb-12">
       <h3 className="text-lg font-medium text-black mb-3">{section.title}</h3>
@@ -67,10 +78,11 @@ const ConfigurationPage: React.FC = () => {
                 {data.sidebar.sections.map((section, index) => (
                   <li key={index}>
                     <a
-                      href={`#${section.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm text-gray-600 hover:text-black"
+                      href={`#${section.id}`}
+                      onClick={(e) => handleNavClick(e, section.id)}
+                      className="text-sm text-gray-600 hover:text-black cursor-pointer"
                     >
-                      {section}
+                      {section.title}
                     </a>
                   </li>
                 ))}
@@ -154,6 +166,24 @@ const ConfigurationPage: React.FC = () => {
                     <div className="ml-8">"enable_full_text_search": true,</div>
                     <div className="ml-8">"enable_embeddings": false,</div>
                     <div className="ml-8">"backup_interval": 86400000</div>
+                    <div className="ml-4">{"}"},</div>
+                    <div className="ml-4">"intelligent_memory": {"{"}</div>
+                    <div className="ml-8">"enabled": true,</div>
+                    <div className="ml-8">"thresholds": {"{"}</div>
+                    <div className="ml-12">"high_value": 80,</div>
+                    <div className="ml-12">"medium_value": 50,</div>
+                    <div className="ml-12">"low_value": 25</div>
+                    <div className="ml-8">{"}"},</div>
+                    <div className="ml-8">"weights": {"{"}</div>
+                    <div className="ml-12">"code_significance": 0.3,</div>
+                    <div className="ml-12">"problem_complexity": 0.25,</div>
+                    <div className="ml-12">"solution_importance": 0.25,</div>
+                    <div className="ml-12">"reusability": 0.2</div>
+                    <div className="ml-8">{"}"},</div>
+                    <div className="ml-8">"learning": {"{"}</div>
+                    <div className="ml-12">"enabled": true,</div>
+                    <div className="ml-12">"min_feedback_samples": 10</div>
+                    <div className="ml-8">{"}"}</div>
                     <div className="ml-4">{"}"}</div>
                     <div>{"}"}</div>
                   </div>
@@ -165,8 +195,8 @@ const ConfigurationPage: React.FC = () => {
             {configSections.map((section, index) => (
               <section
                 key={index}
-                id={section.title.toLowerCase().replace(/\s+/g, "-")}
-                className="mb-16"
+                id={section.id}
+                className="mb-16 scroll-mt-8"
               >
                 <ConfigTable section={section} />
               </section>

@@ -33,16 +33,60 @@ const ToolsPage: React.FC = () => {
   const ToolCard = ({ tool }: { tool: any }) => {
     const requiredParams = tool.inputSchema.required || [];
     const allParams = Object.keys(tool.inputSchema.properties);
+    const properties = tool.inputSchema.properties;
+
+    // 渲染参数详情
+    const renderParamDetails = (paramName: string, isRequired: boolean) => {
+      const param = properties[paramName];
+      if (!param) return null;
+
+      return (
+        <div
+          key={paramName}
+          className="mb-3 pb-3 border-b border-gray-200 last:border-0"
+        >
+          <div className="flex items-start gap-2">
+            <code className="text-sm font-mono text-red-600">{paramName}</code>
+            {isRequired && (
+              <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded">
+                {language === "zh" ? "必需" : "required"}
+              </span>
+            )}
+          </div>
+          {param.description && (
+            <p className="text-sm text-gray-600 mt-1">{param.description}</p>
+          )}
+          <div className="text-xs text-gray-500 mt-1">
+            <span className="font-medium">
+              {language === "zh" ? "类型:" : "Type:"}
+            </span>{" "}
+            {param.type}
+            {param.enum && (
+              <>
+                <br />
+                <span className="font-medium">
+                  {language === "zh" ? "可选值:" : "Values:"}
+                </span>{" "}
+                <code className="text-xs bg-gray-100 px-1">
+                  {param.enum.join(" | ")}
+                </code>
+              </>
+            )}
+          </div>
+        </div>
+      );
+    };
 
     return (
-      <div className="bg-white p-8 border border-gray-300 hover:border-black transition-colors">
+      <div className="bg-white p-6 border border-gray-300 hover:border-black transition-colors">
         <div className="mb-4">
           <h3 className="text-lg font-medium text-black mb-2">{tool.name}</h3>
           <p className="text-base text-gray-700">
             {translate(tool.description)}
           </p>
         </div>
-        <div className="space-y-3">
+
+        <div className="space-y-4">
           <div>
             <span className="text-sm font-medium text-gray-600">
               {language === "zh" ? "类别:" : "Category:"}
@@ -51,28 +95,32 @@ const ToolsPage: React.FC = () => {
               {translate(tool.category)}
             </span>
           </div>
-          <div>
-            <span className="text-sm font-medium text-gray-600">
-              {language === "zh" ? "必需参数:" : "Required:"}
-            </span>
-            <span className="text-sm text-gray-700 ml-2">
-              {requiredParams.length > 0
-                ? requiredParams.join(", ")
-                : language === "zh"
-                ? "无"
-                : "None"}
-            </span>
-          </div>
-          <div>
-            <span className="text-sm font-medium text-gray-600">
-              {language === "zh" ? "可选参数:" : "Optional:"}
-            </span>
-            <span className="text-sm text-gray-700 ml-2">
-              {allParams
-                .filter((p) => !requiredParams.includes(p))
-                .join(", ") || (language === "zh" ? "无" : "None")}
-            </span>
-          </div>
+
+          {/* 必需参数详情 */}
+          {requiredParams.length > 0 && (
+            <div>
+              <h4 className="text-sm font-medium text-gray-900 mb-2">
+                {language === "zh" ? "必需参数" : "Required Parameters"}
+              </h4>
+              <div className="bg-gray-50 p-3 rounded">
+                {requiredParams.map((param) => renderParamDetails(param, true))}
+              </div>
+            </div>
+          )}
+
+          {/* 可选参数详情 */}
+          {allParams.filter((p) => !requiredParams.includes(p)).length > 0 && (
+            <div>
+              <h4 className="text-sm font-medium text-gray-900 mb-2">
+                {language === "zh" ? "可选参数" : "Optional Parameters"}
+              </h4>
+              <div className="bg-gray-50 p-3 rounded">
+                {allParams
+                  .filter((p) => !requiredParams.includes(p))
+                  .map((param) => renderParamDetails(param, false))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );

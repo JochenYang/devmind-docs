@@ -46,15 +46,15 @@ const GettingStartedPage: React.FC = () => {
           installation: {
             title: "安装方式",
             npx: {
-              title: "NPX方式 (推荐快速测试)",
-              desc: "无需全局安装，适合临时体验或CI验证",
+              title: "NPX方式 (推荐)",
+              desc: "无需安装，每次自动使用最新版本",
             },
             global: {
-              title: "全局安装 (日常开发)",
-              desc: "本地命令可用，启动快速，适合长期使用",
+              title: "全局安装 (可选)",
+              desc: "固定版本，启动更快，适合稳定环境",
             },
             source: {
-              title: "源码安装 (贡献开发)",
+              title: "源码安装 (开发者)",
               desc: "可调试与修改源码，适合贡献开发",
             },
           },
@@ -66,8 +66,8 @@ const GettingStartedPage: React.FC = () => {
               windows: "Windows:",
               macos: "macOS/Linux:",
             },
-            step2: { title: "2. MCP配置示例 (NPX方式)" },
-            step3: { title: "3. MCP配置示例 (全局安装)" },
+            step2: { title: "2. NPX方式配置" },
+            step3: { title: "3. 全局安装配置" },
           },
           verification: {
             title: "首次运行与验证",
@@ -133,15 +133,15 @@ const GettingStartedPage: React.FC = () => {
           installation: {
             title: "Installation Methods",
             npx: {
-              title: "NPX Method (Recommended for Quick Testing)",
-              desc: "No global installation required, suitable for temporary testing or CI verification",
+              title: "NPX Method (Recommended)",
+              desc: "No installation needed, always uses the latest version",
             },
             global: {
-              title: "Global Installation (Daily Development)",
-              desc: "Local commands available, fast startup, suitable for long-term use",
+              title: "Global Installation (Optional)",
+              desc: "Fixed version, faster startup, suitable for stable environments",
             },
             source: {
-              title: "Source Installation (Contributing Development)",
+              title: "Source Installation (Developers)",
               desc: "Debug and modify source code, suitable for contributing development",
             },
           },
@@ -153,9 +153,9 @@ const GettingStartedPage: React.FC = () => {
               windows: "Windows:",
               macos: "macOS/Linux:",
             },
-            step2: { title: "2. MCP Configuration Example (NPX Method)" },
+            step2: { title: "2. NPX Method Configuration" },
             step3: {
-              title: "3. MCP Configuration Example (Global Installation)",
+              title: "3. Global Installation Configuration",
             },
           },
           verification: {

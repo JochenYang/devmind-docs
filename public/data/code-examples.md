@@ -34,11 +34,11 @@ DevMind MCP 支持三种安装方式:NPX 快速试用、全局安装用于日常
 为便于选择,表 1 对比三种安装方式的关键差异与适用场景。
 
 表 1 安装方式对比表
-| 安装方式 | 适用场景 | 优点 | 注意事项 | 典型命令 |
-|---|---|---|---|---|
-| NPX 快速试用 | 临时测试、单次调用 | 无需全局安装,快速体验 | 每次启动可能拉取最新包;网络与缓存影响速度 | npx -y devmind-mcp@latest |
-| 全局安装 | 日常开发、长期使用 | 本地命令可用,启动快 | 需管理全局版本与更新;权限与 PATH 配置 | npm install -g devmind-mcp |
-| 源码安装 | 贡献代码、自定义构建 | 可调试与修改源码 | 需构建与依赖安装;遵循项目脚本 | git clone ...; npm install |
+| 安装方式     | 适用场景            | 优点                  | 注意事项                                  | 典型命令                   |
+|--------------|---------------------|-----------------------|-------------------------------------------|----------------------------|
+| NPX 快速试用 | 临时测试、单次调用   | 无需全局安装,快速体验 | 每次启动可能拉取最新包;网络与缓存影响速度 | npx -y devmind-mcp@latest  |
+| 全局安装     | 日常开发、长期使用   | 本地命令可用,启动快   | 需管理全局版本与更新;权限与 PATH 配置     | npm install -g devmind-mcp |
+| 源码安装     | 贡献代码、自定义构建 | 可调试与修改源码      | 需构建与依赖安装;遵循项目脚本             | git clone ...; npm install |
 
 ### NPX 快速试用(推荐用于测试)
 
@@ -169,26 +169,26 @@ DevMind 的行为通过 .devmind.json 控制,涵盖数据库、搜索、文件�
 为便于理解,表 2 汇总主要配置项的作用、默认值与建议值。
 
 表 2 配置项说明表
-| 键名 | 类型 | 默认值 | 作用 | 建议值/示例 |
-|---|---|---|---|---|
-| database_path | string | "~/.devmind/memory.db" | SQLite 数据库文件路径 | 项目级或用户级路径,确保权限可写 |
-| max_contexts_per_session | number | 1000 | 每会话最大上下文数量 | 大型项目可提升至 2000–5000 |
-| quality_threshold | number | 0.3 | 上下文质量阈值 | 安全/核心模块可提高至 0.5–0.7 |
-| embedding_model | string | "local" | 嵌入模型模式 | "local" 或外部 API(需另行配置) |
-| auto_save_interval | number | 30000 | 自动保存间隔(毫秒) | I/O 负载高时适当增大 |
-| ignored_patterns | string[] | 常见构建/缓存目录 | 文件过滤:忽略匹配模式 | 结合项目结构补充 |
-| included_extensions | string[] | 多语言扩展名 | 文件过滤:包含扩展名 | 依据仓库语言调整 |
-| project_detection.enable_git_analysis | boolean | true | 启用 Git 分析 | 大型仓库建议启用 |
-| project_detection.enable_package_detection | boolean | true | 启用包管理器检测 | 建议启用以识别依赖 |
-| project_detection.enable_language_detection | boolean | true | 启用语言检测 | 建议启用以优化分析 |
-| context_extraction.max_code_chunk_lines | number | 100 | 代码分块最大行数 | 大文件可适当增大 |
-| context_extraction.enable_comment_analysis | boolean | true | 启用注释分析 | 有助于提炼文档化上下文 |
-| context_extraction.enable_structure_analysis | boolean | true | 启用结构分析 | 有助于提取 API/模块结构 |
-| context_extraction.enable_quality_scoring | boolean | true | 启用质量评分 | 配合阈值清理低质量内容 |
-| storage.enable_compression | boolean | false | 启用存储压缩 | 磁盘紧张时启用 |
-| storage.enable_full_text_search | boolean | true | 启用全文检索 | 建议启用以提升搜索灵活性 |
-| storage.enable_embeddings | boolean | false | 启用向量嵌入 | 需要语义搜索时启用 |
-| storage.backup_interval | number | 86400000 | 备份间隔(毫秒) | 每日或每周备份更稳妥 |
+| 键名                                         | 类型     | 默认值                 | 作用                  | 建议值/示例                     |
+|----------------------------------------------|----------|------------------------|-----------------------|---------------------------------|
+| database_path                                | string   | "~/.devmind/memory.db" | SQLite 数据库文件路径 | 项目级或用户级路径,确保权限可写 |
+| max_contexts_per_session                     | number   | 1000                   | 每会话最大上下文数量  | 大型项目可提升至 2000–5000      |
+| quality_threshold                            | number   | 0.3                    | 上下文质量阈值        | 安全/核心模块可提高至 0.5–0.7   |
+| embedding_model                              | string   | "local"                | 嵌入模型模式          | "local" 或外部 API(需另行配置)  |
+| auto_save_interval                           | number   | 30000                  | 自动保存间隔(毫秒)    | I/O 负载高时适当增大            |
+| ignored_patterns                             | string[] | 常见构建/缓存目录      | 文件过滤:忽略匹配模式 | 结合项目结构补充                |
+| included_extensions                          | string[] | 多语言扩展名           | 文件过滤:包含扩展名   | 依据仓库语言调整                |
+| project_detection.enable_git_analysis        | boolean  | true                   | 启用 Git 分析         | 大型仓库建议启用                |
+| project_detection.enable_package_detection   | boolean  | true                   | 启用包管理器检测      | 建议启用以识别依赖              |
+| project_detection.enable_language_detection  | boolean  | true                   | 启用语言检测          | 建议启用以优化分析              |
+| context_extraction.max_code_chunk_lines      | number   | 100                    | 代码分块最大行数      | 大文件可适当增大                |
+| context_extraction.enable_comment_analysis   | boolean  | true                   | 启用注释分析          | 有助于提炼文档化上下文          |
+| context_extraction.enable_structure_analysis | boolean  | true                   | 启用结构分析          | 有助于提取 API/模块结构         |
+| context_extraction.enable_quality_scoring    | boolean  | true                   | 启用质量评分          | 配合阈值清理低质量内容          |
+| storage.enable_compression                   | boolean  | false                  | 启用存储压缩          | 磁盘紧张时启用                  |
+| storage.enable_full_text_search              | boolean  | true                   | 启用全文检索          | 建议启用以提升搜索灵活性        |
+| storage.enable_embeddings                    | boolean  | false                  | 启用向量嵌入          | 需要语义搜索时启用              |
+| storage.backup_interval                      | number   | 86400000               | 备份间隔(毫秒)        | 每日或每周备份更稳妥            |
 
 ## 使用示例:18个 MCP 工具的实际调用
 
@@ -197,26 +197,26 @@ DevMind MCP 提供 18 个工具,覆盖会话管理、上下文操作、项目分
 为便于整体把握,表 3 汇总 18 个工具的用途、关键参数与返回要点。
 
 表 3 MCP 工具概览表
-| 名称 | 类别 | 用途 | 关键参数 | 返回要点 |
-|---|---|---|---|---|
-| create_session | 会话管理 | 创建新的开发会话 | name?, project?, tags? | session_id, meta |
-| get_current_session | 会话管理 | 获取当前活跃会话 | 无 | session_id, status |
-| end_session | 会话管理 | 结束当前会话 | session_id | done=true, summary |
-| delete_session | 会话管理 | 删除会话及关联上下文 | session_id | deleted_count |
-| record_context | 上下文操作 | 存储开发上下文 | content, type, tags, metadata | context_id, score |
-| list_contexts | 上下文操作 | 列出已存储上下文 | filters?, pagination? | items[], total |
-| delete_context | 上下文操作 | 删除指定上下文 | context_id | deleted=true |
-| update_context | 上下文操作 | 更新上下文内容/标签 | context_id, patch | updated_at, diff |
-| extract_file_context | 上下文操作 | 从文件提取上下文 | file_path, options | chunks[], quality |
-| retrieve_context | 上下文操作 | 检索特定上下文 | context_id | item |
-| search_contexts | 上下文操作 | 关键词/混合搜索 | query, filters | items[], score |
-| analyze_project | 项目分析 | 分析项目结构与代码 | project_path, options | summary, metrics |
-| generate_documentation | 项目分析 | 生成项目文档 | project_path, style, language | doc_path, content |
-| optimize_storage | 内存优化 | 优化存储空间 | project_id?, dry_run? | removed_count, saved_mb |
-| cleanup_duplicates | 内存优化 | 清理重复上下文 | threshold? | removed_count |
-| compress_data | 内存优化 | 压缩数据 | enable? | compressed=true |
-| backup_data | 内存优化 | 备份数据 | output_path | backup_id, size |
-| get_system_status | 系统状态 | 获取系统状态信息 | 无 | version, health, stats |
+| 名称                   | 类别       | 用途                 | 关键参数                      | 返回要点                |
+|------------------------|------------|----------------------|-------------------------------|-------------------------|
+| create_session         | 会话管理   | 创建新的开发会话     | name?, project?, tags?        | session_id, meta        |
+| get_current_session    | 会话管理   | 获取当前活跃会话     | 无                            | session_id, status      |
+| end_session            | 会话管理   | 结束当前会话         | session_id                    | done=true, summary      |
+| delete_session         | 会话管理   | 删除会话及关联上下文 | session_id                    | deleted_count           |
+| record_context         | 上下文操作 | 存储开发上下文       | content, type, tags, metadata | context_id, score       |
+| list_contexts          | 上下文操作 | 列出已存储上下文     | filters?, pagination?         | items[], total          |
+| delete_context         | 上下文操作 | 删除指定上下文       | context_id                    | deleted=true            |
+| update_context         | 上下文操作 | 更新上下文内容/标签  | context_id, patch             | updated_at, diff        |
+| extract_file_context   | 上下文操作 | 从文件提取上下文     | file_path, options            | chunks[], quality       |
+| retrieve_context       | 上下文操作 | 检索特定上下文       | context_id                    | item                    |
+| search_contexts        | 上下文操作 | 关键词/混合搜索      | query, filters                | items[], score          |
+| analyze_project        | 项目分析   | 分析项目结构与代码   | project_path, options         | summary, metrics        |
+| generate_documentation | 项目分析   | 生成项目文档         | project_path, style, language | doc_path, content       |
+| optimize_storage       | 内存优化   | 优化存储空间         | project_id?, dry_run?         | removed_count, saved_mb |
+| cleanup_duplicates     | 内存优化   | 清理重复上下文       | threshold?                    | removed_count           |
+| compress_data          | 内存优化   | 压缩数据             | enable?                       | compressed=true         |
+| backup_data            | 内存优化   | 备份数据             | output_path                   | backup_id, size         |
+| get_system_status      | 系统状态   | 获取系统状态信息     | 无                            | version, health, stats  |
 
 ### 会话管理工具(4个)
 
@@ -348,6 +348,60 @@ DevMind MCP 提供 18 个工具,覆盖会话管理、上下文操作、项目分
 常见错误:
 - 内容为空:补充描述或关联文件;
 - 标签过多:精简至关键标签。
+
+示例 5-1:智能自动记忆 (v2.0.0 新功能)
+
+**AI主动记忆（默认）**
+```json
+{
+  "tool": "record_context",
+  "args": {
+    "content": "修复了关键的内存泄漏问题，在长时间运行后应用程序会出现内存泄漏。添加了事件监听器的清理，修复了闭包引用问题。",
+    "type": "bug_fix",
+    "project_path": "./my-project"
+  }
+}
+```
+
+预期输出(示例):
+```json
+{
+  "context_id": "ctx_01HJAX2...",
+  "auto_memory_decision": "memory_stored",
+  "evaluation_result": {
+    "process_type": "bug_fix",
+    "value_score": 85,
+    "decision": "auto_remember"
+  },
+  "message": "已自动记忆\n\n评估结果：\n- 过程类型：Bug 修复（置信度 90%）\n- 价值评分：85/100\n  * 代码显著性：80\n  * 问题复杂度：90\n  * 解决方案重要性：85\n  * 可复用性：80\n\n建议标签：bug-fix, memory-leak, performance\n\n决策理由：高价值 bug 修复，涉及内存管理，值得记忆"
+}
+```
+
+**用户主动记忆（最高优先级）**
+```json
+{
+  "tool": "record_context",
+  "args": {
+    "content": "关键架构决策：采用微服务架构进行系统重构",
+    "type": "solution_design",
+    "project_path": "./my-project",
+    "force_remember": true
+  }
+}
+```
+
+**传统记忆（禁用智能评估）**
+```json
+{
+  "tool": "record_context",
+  "args": {
+    "content": "常规代码变更",
+    "type": "code",
+    "project_path": "./my-project",
+    "auto_evaluate": false
+  }
+}
+```
 
 示例 6:列出上下文
 
@@ -683,17 +737,17 @@ DevMind MCP 提供 18 个工具,覆盖会话管理、上下文操作、项目分
 CLI 提供初始化、启动、状态、搜索、提取、维护(备份/恢复)与停止等常用操作。以下示例覆盖典型场景,输出为工程化可验证样式[^1][^2]。
 
 表 4 CLI 命令速查表
-| 命令 | 作用 | 关键参数 | 示例 | 预期输出要点 |
-|---|---|---|---|---|
-| devmind init | 初始化配置 | 无 | devmind init | 生成默认 .devmind.json |
-| devmind start | 启动监控守护进程 | 无 | devmind start | 守护进程启动日志 |
-| devmind status | 检查守护进程状态 | 无 | devmind status | active/idle、版本信息 |
-| devmind search | 语义/关键词搜索 | query, --project, --limit, --threshold | devmind search "auth" --limit 5 | 匹配条目与分数 |
-| devmind extract | 提取文件上下文 | file_path, --record | devmind extract src/app.ts --record | 提取块与质量评分 |
-| devmind optimize | 优化存储 | project-id | devmind optimize myapp | removed_count、saved_mb |
-| devmind stop | 停止守护进程 | 无 | devmind stop | stopped=true |
-| devmind maintenance backup | 创建备份 | --output | devmind maintenance backup --output ./backups/before-refactor.json | backup_id、size_mb |
-| devmind maintenance restore | 从备份恢复 | backup_path, --force | devmind maintenance restore ./backups/before-refactor.json --force | restored=true |
+| 命令                        | 作用             | 关键参数                               | 示例                                                               | 预期输出要点           |
+|-----------------------------|------------------|----------------------------------------|--------------------------------------------------------------------|------------------------|
+| devmind init                | 初始化配置       | 无                                     | devmind init                                                       | 生成默认 .devmind.json |
+| devmind start               | 启动监控守护进程 | 无                                     | devmind start                                                      | 守护进程启动日志       |
+| devmind status              | 检查守护进程状态 | 无                                     | devmind status                                                     | active/idle、版本信息   |
+| devmind search              | 语义/关键词搜索  | query, --project, --limit, --threshold | devmind search "auth" --limit 5                                    | 匹配条目与分数         |
+| devmind extract             | 提取文件上下文   | file_path, --record                    | devmind extract src/app.ts --record                                | 提取块与质量评分       |
+| devmind optimize            | 优化存储         | project-id                             | devmind optimize myapp                                             | removed_count、saved_mb |
+| devmind stop                | 停止守护进程     | 无                                     | devmind stop                                                       | stopped=true           |
+| devmind maintenance backup  | 创建备份         | --output                               | devmind maintenance backup --output ./backups/before-refactor.json | backup_id、size_mb      |
+| devmind maintenance restore | 从备份恢复       | backup_path, --force                   | devmind maintenance restore ./backups/before-refactor.json --force | restored=true          |
 
 示例:初始化与启动
 
@@ -779,13 +833,13 @@ restored: true | conflicts: 0
 DevMind MCP 提供 JavaScript API 以编程方式调用工具与 CLI 操作。以下示例展示典型调用模式,涵盖记录上下文、语义搜索、更新上下文与项目分析。注意:部分函数名在上下文中未明确(例如语义搜索),实际名称以官方接口为准[^1][^2]。
 
 表 5 API 调用映射表
-| 功能 | 函数名(占位) | 关键参数 | 返回字段 | 示例 |
-|---|---|---|---|---|
-| 记录上下文 | record_context | content, type, tags, metadata | context_id, score | 详见示例 |
-| 语义搜索 | semantic_search(或 search_contexts) | query, limit, type, tags, timeRange | items[], score | 详见示例 |
-| 更新上下文 | update_context | context_id, patch | updated_at, diff | 详见示例 |
-| 项目分析(英文) | project_analysis_engineer | project_path, doc_style, language | summary, doc_path | 详见示例 |
-| 项目分析(中文) | project_analysis_engineer | project_path, doc_style, language | summary, doc_path | 详见示例 |
+| 功能           | 函数名(占位)                        | 关键参数                            | 返回字段          | 示例     |
+|----------------|-------------------------------------|-------------------------------------|-------------------|----------|
+| 记录上下文     | record_context                      | content, type, tags, metadata       | context_id, score | 详见示例 |
+| 语义搜索       | semantic_search(或 search_contexts) | query, limit, type, tags, timeRange | items[], score    | 详见示例 |
+| 更新上下文     | update_context                      | context_id, patch                   | updated_at, diff  | 详见示例 |
+| 项目分析(英文) | project_analysis_engineer           | project_path, doc_style, language   | summary, doc_path | 详见示例 |
+| 项目分析(中文) | project_analysis_engineer           | project_path, doc_style, language   | summary, doc_path | 详见示例 |
 
 示例:记录上下文
 
@@ -885,10 +939,10 @@ summary: { languages: ["TypeScript"], modules: 23 }
 DevMind 可通过 MCP 客户端配置接入。以 Claude Desktop 为例,需在用户配置文件中声明 devmind 服务器,使用 NPX 启动。以下为通用模板与校验方法,Cursor 等客户端配置路径与字段可能不同,需参考各自文档与实际版本[^1][^2]。
 
 表 6 客户端配置模板表
-| 客户端 | 配置文件路径(示例) | 关键字段 | 示例片段 | 注意事项 |
-|---|---|---|---|---|
-| Claude Desktop | ~/.claude.json(类 Unix),Windows 对应路径 | mcpServers, command, args | 详见示例 | 路径与字段以客户端版本为准 |
-| Cursor(通用 MCP) | 参考客户端文档 | server name, command, args | 参考示例 | 版本差异可能影响字段名 |
+| 客户端           | 配置文件路径(示例)                       | 关键字段                   | 示例片段 | 注意事项                   |
+|------------------|------------------------------------------|----------------------------|----------|----------------------------|
+| Claude Desktop   | ~/.claude.json(类 Unix),Windows 对应路径 | mcpServers, command, args  | 详见示例 | 路径与字段以客户端版本为准 |
+| Cursor(通用 MCP) | 参考客户端文档                           | server name, command, args | 参考示例 | 版本差异可能影响字段名     |
 
 示例:Claude Desktop 配置
 
@@ -919,12 +973,12 @@ DevMind 可通过 MCP 客户端配置接入。以 Claude Desktop 为例,需在�
 本节通过四个复杂场景,展示如何将 MCP 工具、CLI 与 API 编排为端到端工作流。每个场景包含完整代码、注释与预期输出。
 
 表 7 高级场景流程表
-| 场景 | 步骤概览 | 涉及工具/命令 | 预期输出 | 注意事项 |
-|---|---|---|---|---|
-| A 代码变更记忆与检索 | 创建会话 → 提取文件上下文 → 记录关键上下文 → 语义搜索 | create_session, extract_file_context, record_context, semantic_search | 检索到高匹配上下文 | 标签规范化、阈值调优 |
-| B 项目重构与文档生成 | analyze_project → generate_documentation → 备份 → 优化 | analyze_project, generate_documentation, backup_data, optimize_storage | 生成 DEVMIND.md,备份与优化报告 | 输出路径权限、压缩策略 |
-| C 知识库构建与维护 | 批量 record_context → 定期 cleanup_duplicates/compress_data → 备份 | record_context, cleanup_duplicates, compress_data, backup_data | 清理重复、压缩与备份完成 | 批量限流、版本化备份 |
-| D 自动化监控与报告 | 启动守护进程 → 定期 status/backup/search → 生成报告 | start, status, backup_data, search, generate_documentation | 周期性报告与告警 | 调度频率、错误告警 |
+| 场景                 | 步骤概览                                                           | 涉及工具/命令                                                          | 预期输出                       | 注意事项              |
+|----------------------|--------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------|-----------------------|
+| A 代码变更记忆与检索 | 创建会话 → 提取文件上下文 → 记录关键上下文 → 语义搜索              | create_session, extract_file_context, record_context, semantic_search  | 检索到高匹配上下文             | 标签规范化、阈值调优   |
+| B 项目重构与文档生成 | analyze_project → generate_documentation → 备份 → 优化             | analyze_project, generate_documentation, backup_data, optimize_storage | 生成 DEVMIND.md,备份与优化报告 | 输出路径权限、压缩策略 |
+| C 知识库构建与维护   | 批量 record_context → 定期 cleanup_duplicates/compress_data → 备份 | record_context, cleanup_duplicates, compress_data, backup_data         | 清理重复、压缩与备份完成        | 批量限流、版本化备份   |
+| D 自动化监控与报告   | 启动守护进程 → 定期 status/backup/search → 生成报告                | start, status, backup_data, search, generate_documentation             | 周期性报告与告警               | 调度频率、错误告警     |
 
 场景 A:代码变更记忆与检索
 
@@ -1030,15 +1084,15 @@ matches: 2 | avg_score: 0.87
 ## 常见错误与解决方案(FAQ)
 
 表 8 故障排除速查表
-| 问题 | 可能原因 | 排查步骤 | 解决方案 |
-|---|---|---|---|
-| NPX 启动失败 | 网络/代理、Node 版本、权限 | 检查 npm 配置与 Node 版本;重试 | 升级 Node;配置代理;校验权限[^2] |
-| 全局命令不可用 | PATH 未更新 | echo $PATH;which devmind | 重新安装或设置 npm 全局路径 |
-| 守护进程无法启动 | 端口占用、资源不足 | 查看进程与日志 | 释放端口;重启服务 |
-| 搜索无结果 | 阈值过高、索引未建 | 降低 threshold;检查索引 | 调整阈值;启用全文或 embeddings[^1] |
-| 客户端连接失败 | 配置路径/字段错误 | 校验配置文件 | 按客户端文档修正字段[^1] |
-| 备份/恢复失败 | 路径/权限问题 | 校验目录与权限 | 创建目录;赋权;使用 --force |
-| 文档生成失败 | 路径不存在/语言不支持 | 校验路径与 language | 修正路径;使用 en/zh[^1] |
+| 问题             | 可能原因                 | 排查步骤                       | 解决方案                           |
+|------------------|--------------------------|--------------------------------|------------------------------------|
+| NPX 启动失败     | 网络/代理、Node 版本、权限 | 检查 npm 配置与 Node 版本;重试 | 升级 Node;配置代理;校验权限[^2]    |
+| 全局命令不可用   | PATH 未更新              | echo $PATH;which devmind       | 重新安装或设置 npm 全局路径        |
+| 守护进程无法启动 | 端口占用、资源不足        | 查看进程与日志                 | 释放端口;重启服务                  |
+| 搜索无结果       | 阈值过高、索引未建        | 降低 threshold;检查索引        | 调整阈值;启用全文或 embeddings[^1] |
+| 客户端连接失败   | 配置路径/字段错误        | 校验配置文件                   | 按客户端文档修正字段[^1]           |
+| 备份/恢复失败    | 路径/权限问题            | 校验目录与权限                 | 创建目录;赋权;使用 --force         |
+| 文档生成失败     | 路径不存在/语言不支持    | 校验路径与 language            | 修正路径;使用 en/zh[^1]            |
 
 ## 最佳实践与建议
 

@@ -2,6 +2,7 @@ export const configurationData = {
   zh: {
     sections: [
       {
+        id: "basic-configuration",
         title: "基本配置",
         description: ".devmind.json 基础参数",
         fields: [
@@ -38,6 +39,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "file-filtering",
         title: "文件过滤",
         description: "控制上下文提取与项目检测的文件范围",
         fields: [
@@ -56,6 +58,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "project-detection",
         title: "项目检测",
         description: "启用各种项目分析功能",
         fields: [
@@ -80,6 +83,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "context-extraction",
         title: "上下文提取",
         description: "控制代码分块与分析行为",
         fields: [
@@ -110,6 +114,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "storage-configuration",
         title: "存储配置",
         description: "控制存储与索引行为",
         fields: [
@@ -139,15 +144,89 @@ export const configurationData = {
           },
         ],
       },
+      {
+        id: "intelligent-memory",
+        title: "智能记忆",
+        description: "智能自动记忆系统配置",
+        fields: [
+          {
+            name: "intelligent_memory.enabled",
+            type: "boolean",
+            default: "true",
+            description: "是否启用智能自动记忆功能",
+          },
+          {
+            name: "intelligent_memory.thresholds.high_value",
+            type: "number",
+            default: "80",
+            description: "高价值阈值，≥此值自动记忆",
+          },
+          {
+            name: "intelligent_memory.thresholds.medium_value",
+            type: "number",
+            default: "50",
+            description: "中等价值阈值，≥此值询问确认",
+          },
+          {
+            name: "intelligent_memory.thresholds.low_value",
+            type: "number",
+            default: "25",
+            description: "低价值阈值，<此值忽略",
+          },
+          {
+            name: "intelligent_memory.weights.code_significance",
+            type: "number",
+            default: "0.3",
+            description: "代码显著性权重(30%)",
+          },
+          {
+            name: "intelligent_memory.weights.problem_complexity",
+            type: "number",
+            default: "0.25",
+            description: "问题复杂度权重(25%)",
+          },
+          {
+            name: "intelligent_memory.weights.solution_importance",
+            type: "number",
+            default: "0.25",
+            description: "解决方案重要性权重(25%)",
+          },
+          {
+            name: "intelligent_memory.weights.reusability",
+            type: "number",
+            default: "0.2",
+            description: "可复用性权重(20%)",
+          },
+          {
+            name: "intelligent_memory.learning.enabled",
+            type: "boolean",
+            default: "true",
+            description: "是否启用反馈学习",
+          },
+          {
+            name: "intelligent_memory.learning.min_feedback_samples",
+            type: "number",
+            default: "10",
+            description: "最小反馈样本数",
+          },
+        ],
+      },
     ],
     sidebar: {
       title: "配置指南",
-      sections: ["基本配置", "文件过滤", "项目检测", "上下文提取", "存储配置"],
+      sections: [
+        { id: "basic-configuration", title: "基本配置" },
+        { id: "file-filtering", title: "文件过滤" },
+        { id: "project-detection", title: "项目检测" },
+        { id: "context-extraction", title: "上下文提取" },
+        { id: "storage-configuration", title: "存储配置" },
+        { id: "intelligent-memory", title: "智能记忆" },
+      ],
       links: {
         title: "相关链接",
         items: [
           { text: "快速开始", to: "/getting-started" },
-          { text: "CLI参考", to: "/cli-reference" },
+          { text: "MCP工具", to: "/tools" },
           { text: "API参考", to: "/api-reference" },
         ],
       },
@@ -162,6 +241,7 @@ export const configurationData = {
   en: {
     sections: [
       {
+        id: "basic-configuration",
         title: "Basic Configuration",
         description: ".devmind.json basic parameters",
         fields: [
@@ -198,6 +278,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "file-filtering",
         title: "File Filtering",
         description:
           "Control file scope for context extraction and project detection",
@@ -217,6 +298,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "project-detection",
         title: "Project Detection",
         description: "Enable various project analysis features",
         fields: [
@@ -241,6 +323,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "context-extraction",
         title: "Context Extraction",
         description: "Control code chunking and analysis behavior",
         fields: [
@@ -271,6 +354,7 @@ export const configurationData = {
         ],
       },
       {
+        id: "storage-configuration",
         title: "Storage Configuration",
         description: "Control storage and indexing behavior",
         fields: [
@@ -300,21 +384,90 @@ export const configurationData = {
           },
         ],
       },
+      {
+        id: "intelligent-memory",
+        title: "Intelligent Memory",
+        description: "Intelligent auto-memory system configuration",
+        fields: [
+          {
+            name: "intelligent_memory.enabled",
+            type: "boolean",
+            default: "true",
+            description: "Enable intelligent auto-memory feature",
+          },
+          {
+            name: "intelligent_memory.thresholds.high_value",
+            type: "number",
+            default: "80",
+            description: "High value threshold, auto-remember if ≥ this value",
+          },
+          {
+            name: "intelligent_memory.thresholds.medium_value",
+            type: "number",
+            default: "50",
+            description:
+              "Medium value threshold, ask for confirmation if ≥ this value",
+          },
+          {
+            name: "intelligent_memory.thresholds.low_value",
+            type: "number",
+            default: "25",
+            description: "Low value threshold, ignore if < this value",
+          },
+          {
+            name: "intelligent_memory.weights.code_significance",
+            type: "number",
+            default: "0.3",
+            description: "Code significance weight (30%)",
+          },
+          {
+            name: "intelligent_memory.weights.problem_complexity",
+            type: "number",
+            default: "0.25",
+            description: "Problem complexity weight (25%)",
+          },
+          {
+            name: "intelligent_memory.weights.solution_importance",
+            type: "number",
+            default: "0.25",
+            description: "Solution importance weight (25%)",
+          },
+          {
+            name: "intelligent_memory.weights.reusability",
+            type: "number",
+            default: "0.2",
+            description: "Reusability weight (20%)",
+          },
+          {
+            name: "intelligent_memory.learning.enabled",
+            type: "boolean",
+            default: "true",
+            description: "Enable feedback learning",
+          },
+          {
+            name: "intelligent_memory.learning.min_feedback_samples",
+            type: "number",
+            default: "10",
+            description: "Minimum feedback samples",
+          },
+        ],
+      },
     ],
     sidebar: {
       title: "Configuration Guide",
       sections: [
-        "Basic Configuration",
-        "File Filtering",
-        "Project Detection",
-        "Context Extraction",
-        "Storage Configuration",
+        { id: "basic-configuration", title: "Basic Configuration" },
+        { id: "file-filtering", title: "File Filtering" },
+        { id: "project-detection", title: "Project Detection" },
+        { id: "context-extraction", title: "Context Extraction" },
+        { id: "storage-configuration", title: "Storage Configuration" },
+        { id: "intelligent-memory", title: "Intelligent Memory" },
       ],
       links: {
         title: "Related Links",
         items: [
           { text: "Getting Started", to: "/getting-started" },
-          { text: "CLI Reference", to: "/cli-reference" },
+          { text: "MCP Tools", to: "/tools" },
           { text: "API Reference", to: "/api-reference" },
         ],
       },
