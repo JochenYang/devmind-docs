@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
             {t("home.getStarted")}
           </h2>
 
-          {/* 两种使用方式 */}
+          {/* MCP 使用方式 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* MCP客户端使用 */}
             <div className="bg-white p-8 border border-gray-300">
@@ -210,50 +210,59 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* CLI命令行使用 */}
+            {/* 核心优势 */}
             <div className="bg-white p-8 border border-gray-300">
               <div className="text-left mb-6">
                 <h3 className="text-lg font-medium text-black mb-2">
-                  {language === "zh" ? "CLI命令行使用" : "CLI Command Line"}
+                  {language === "zh" ? "为什么选择纯 MCP" : "Why Pure MCP"}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4">
                   {language === "zh"
-                    ? "全局安装后使用命令行工具管理记忆"
-                    : "Manage memory with command-line tools after global installation"}
+                    ? "专注于 MCP 协议，提供更好的 AI 集成体验"
+                    : "Focus on MCP protocol for better AI integration"}
                 </p>
               </div>
-              <div className="text-left mb-6">
-                <div className="text-sm font-medium text-black mb-3">
-                  {language === "zh" ? "安装" : "Install"}
-                </div>
-                <div className="mb-3">
-                  <CodeBlock code="npm install -g devmind-mcp" />
-                </div>
-                <div className="text-sm font-medium text-black mb-2">
-                  {language === "zh" ? "使用" : "Usage"}
-                </div>
-                <CodeBlock
-                  code={`devmind init\ndevmind start\ndevmind search "query"`}
-                />
-              </div>
-              <div className="text-left">
-                <div className="text-xs text-gray-500 mb-2">
-                  {language === "zh" ? "适用于：" : "Suitable for:"}
-                </div>
-                <ul className="text-xs text-gray-600 space-y-1">
-                  <li>
-                    •{" "}
+              <div className="text-left space-y-4">
+                <div>
+                  <div className="text-sm font-medium text-black mb-1">
+                    • {language === "zh" ? "无缝集成" : "Seamless Integration"}
+                  </div>
+                  <div className="text-xs text-gray-600">
                     {language === "zh"
-                      ? "命令行操作"
-                      : "Command line operations"}
-                  </li>
-                  <li>
-                    • {language === "zh" ? "脚本自动化" : "Script automation"}
-                  </li>
-                  <li>
-                    • {language === "zh" ? "守护进程监控" : "Daemon monitoring"}
-                  </li>
-                </ul>
+                      ? "AI 助手直接调用工具，无需手动命令"
+                      : "AI assistants call tools directly, no manual commands"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-black mb-1">
+                    • {language === "zh" ? "更简单" : "Simpler"}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {language === "zh"
+                      ? "一次配置，永久使用，无需学习命令"
+                      : "Configure once, use forever, no commands to learn"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-black mb-1">
+                    • {language === "zh" ? "智能记录" : "Smart Recording"}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {language === "zh"
+                      ? "AI 主动记录重要上下文，更智能"
+                      : "AI actively records important context, smarter"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-black mb-1">
+                    • {language === "zh" ? "跨平台" : "Cross-Platform"}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {language === "zh"
+                      ? "支持所有 MCP 兼容客户端"
+                      : "Works with all MCP-compatible clients"}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -14,17 +14,6 @@ export interface MCPTool {
   };
 }
 
-export interface CLICommand {
-  name: string;
-  description: string;
-  options: Array<{
-    flag: string;
-    description: string;
-    default?: string;
-  }>;
-  examples: string[];
-}
-
 export interface ProjectInfo {
   name: string;
   version: string;
@@ -466,181 +455,6 @@ export const MCP_TOOLS: MCPTool[] = [
   },
 ];
 
-// CLI命令定义
-export const CLI_COMMANDS: CLICommand[] = [
-  {
-    name: "init",
-    description: "初始化DevMind配置",
-    options: [
-      {
-        flag: "--config-path <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-    ],
-    examples: ["devmind init", "devmind init --config-path custom-config.json"],
-  },
-  {
-    name: "start",
-    description: "启动文件监控守护进程",
-    options: [
-      { flag: "--no-terminal", description: "禁用终端命令监控" },
-      {
-        flag: "--project <path>",
-        description: "项目路径",
-        default: "当前目录",
-      },
-    ],
-    examples: ["devmind start", "devmind start --project /path/to/project"],
-  },
-  {
-    name: "stop",
-    description: "停止文件监控守护进程",
-    options: [
-      {
-        flag: "--project <path>",
-        description: "项目路径",
-        default: "当前目录",
-      },
-    ],
-    examples: ["devmind stop"],
-  },
-  {
-    name: "status",
-    description: "检查守护进程状态",
-    options: [
-      {
-        flag: "--project <path>",
-        description: "项目路径",
-        default: "当前目录",
-      },
-    ],
-    examples: ["devmind status"],
-  },
-  {
-    name: "stats",
-    description: "显示内存数据库统计信息",
-    options: [
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-    ],
-    examples: ["devmind stats"],
-  },
-  {
-    name: "search",
-    description: "搜索上下文",
-    options: [
-      { flag: "<query>", description: "搜索查询" },
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--project <id>", description: "项目ID" },
-      { flag: "--limit <number>", description: "最大结果数", default: "10" },
-    ],
-    examples: [
-      'devmind search "authentication bug fix"',
-      'devmind search "API implementation" --limit 5',
-    ],
-  },
-  {
-    name: "extract",
-    description: "从文件提取上下文",
-    options: [
-      { flag: "<file>", description: "文件路径" },
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--session <id>", description: "会话ID" },
-      { flag: "--record", description: "记录提取的上下文" },
-    ],
-    examples: [
-      "devmind extract src/index.ts",
-      "devmind extract src/auth.ts --record --session abc123",
-    ],
-  },
-  {
-    name: "graph",
-    description: "导出内存图可视化",
-    options: [
-      { flag: "<project-id>", description: "项目ID" },
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--output <path>", description: "输出文件路径" },
-      { flag: "--max-nodes <number>", description: "最大节点数", default: "0" },
-      { flag: "--type <type>", description: "按类型过滤" },
-    ],
-    examples: [
-      "devmind graph project-123",
-      "devmind graph project-123 --output graph.html --type solution",
-    ],
-  },
-  {
-    name: "quality",
-    description: "更新上下文的质量分数",
-    options: [
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--project <id>", description: "项目ID" },
-      { flag: "--limit <number>", description: "最大更新数", default: "100" },
-      { flag: "--force", description: "强制更新所有上下文" },
-    ],
-    examples: [
-      "devmind quality",
-      "devmind quality --project project-123 --force",
-    ],
-  },
-  {
-    name: "optimize",
-    description: "优化内存存储",
-    options: [
-      { flag: "<project-id>", description: "项目ID" },
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--dry-run", description: "预览而不应用" },
-    ],
-    examples: [
-      "devmind optimize project-123 --dry-run",
-      "devmind optimize project-123",
-    ],
-  },
-  {
-    name: "maintenance",
-    description: "数据库维护操作",
-    options: [
-      { flag: "<action>", description: "操作: vacuum, backup, restore" },
-      { flag: "[backup-file]", description: "备份文件路径（用于restore）" },
-      {
-        flag: "--config <path>",
-        description: "配置文件路径",
-        default: ".devmind.json",
-      },
-      { flag: "--output <path>", description: "备份输出路径" },
-      { flag: "--force", description: "强制恢复而不确认" },
-    ],
-    examples: [
-      "devmind maintenance vacuum",
-      "devmind maintenance backup --output backup.json",
-      "devmind maintenance restore backup.json",
-    ],
-  },
-];
-
 // 导入版本号（构建时自动生成）
 import { NPM_VERSION } from "./version";
 
@@ -648,16 +462,16 @@ import { NPM_VERSION } from "./version";
 export const PROJECT_INFO: ProjectInfo = {
   name: "DevMind MCP",
   version: NPM_VERSION,
-  description: "具有专业元数据跟踪的AI助手智能上下文感知记忆系统",
+  description: "AI助手记忆系统 - 纯 MCP 工具",
   license: "MIT",
   repository: "https://github.com/JochenYang/Devmind",
   nodeVersion: ">=18.0.0",
   toolCount: 18,
   features: [
     {
-      title: "自动记忆监控",
+      title: "智能记忆管理",
       description:
-        "监控文件更改、Git操作和错误日志，将开发过程自动沉淀为可检索记忆",
+        "通过 MCP 协议实现 AI 驱动的上下文记录，将开发过程沉淀为可检索记忆",
     },
     {
       title: "混合搜索",

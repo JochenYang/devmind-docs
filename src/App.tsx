@@ -4,7 +4,6 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 import HomePage from "./pages/HomePage";
 import GettingStartedPage from "./pages/GettingStartedPage";
 import ToolsPage from "./pages/ToolsPage";
-import CliReferencePage from "./pages/CliReferencePage";
 import ConfigurationPage from "./pages/ConfigurationPage";
 import ApiReferencePage from "./pages/ApiReferencePage";
 import UseCasesPage from "./pages/UseCasesPage";
@@ -39,7 +38,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/getting-started" element={<GettingStartedPage />} />
             <Route path="/tools" element={<ToolsPage />} />
-            <Route path="/cli-reference" element={<CliReferencePage />} />
             <Route path="/configuration" element={<ConfigurationPage />} />
             <Route path="/api-reference" element={<ApiReferencePage />} />
             <Route path="/use-cases" element={<UseCasesPage />} />

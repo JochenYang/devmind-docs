@@ -31,7 +31,6 @@ const GettingStartedPage: React.FC = () => {
               title: "相关链接",
               items: [
                 { text: "MCP工具", to: "/tools" },
-                { text: "CLI参考", to: "/cli-reference" },
                 { text: "配置指南", to: "/configuration" },
               ],
             },
@@ -69,10 +68,6 @@ const GettingStartedPage: React.FC = () => {
             },
             step2: { title: "2. MCP配置示例 (NPX方式)" },
             step3: { title: "3. MCP配置示例 (全局安装)" },
-            step4: {
-              title: "4. 初始化DevMind (可选)",
-              desc: "如果您全局安装了DevMind，可以使用CLI命令初始化配置：",
-            },
           },
           verification: {
             title: "首次运行与验证",
@@ -90,22 +85,14 @@ const GettingStartedPage: React.FC = () => {
                 title: "测试基本功能:",
                 desc: "尝试使用 create_session 创建会话，然后使用 record_context 记录上下文",
               },
-              {
-                title: "启动守护进程 (可选):",
-                desc: "守护进程会自动监控文件变化并记录上下文",
-              },
             ],
-            outputTitle: "预期输出 (CLI)",
+            outputTitle: "预期输出",
           },
           nextSteps: {
             title: "下一步",
             tools: {
               title: "探索MCP工具",
               desc: `了解${PROJECT_INFO.toolCount}个MCP工具的详细用法`,
-            },
-            cli: {
-              title: "CLI命令参考",
-              desc: "掌握完整的命令行界面使用",
             },
           },
         }
@@ -125,7 +112,6 @@ const GettingStartedPage: React.FC = () => {
               title: "Related Links",
               items: [
                 { text: "MCP Tools", to: "/tools" },
-                { text: "CLI Reference", to: "/cli-reference" },
                 { text: "Configuration", to: "/configuration" },
               ],
             },
@@ -171,10 +157,6 @@ const GettingStartedPage: React.FC = () => {
             step3: {
               title: "3. MCP Configuration Example (Global Installation)",
             },
-            step4: {
-              title: "4. Initialize DevMind (Optional)",
-              desc: "If you have globally installed DevMind, you can use CLI commands to initialize configuration:",
-            },
           },
           verification: {
             title: "First Run and Verification",
@@ -192,22 +174,14 @@ const GettingStartedPage: React.FC = () => {
                 title: "Test Basic Functions:",
                 desc: "Try using create_session to create a session, then use record_context to record context",
               },
-              {
-                title: "Start Daemon (Optional):",
-                desc: "The daemon will automatically monitor file changes and record context",
-              },
             ],
-            outputTitle: "Expected Output (CLI)",
+            outputTitle: "Expected Output",
           },
           nextSteps: {
             title: "Next Steps",
             tools: {
               title: "Explore MCP Tools",
               desc: `Learn about ${PROJECT_INFO.toolCount} MCP tools in detail`,
-            },
-            cli: {
-              title: "CLI Command Reference",
-              desc: "Master the complete command-line interface usage",
             },
           },
         };
@@ -398,26 +372,6 @@ const GettingStartedPage: React.FC = () => {
                   language="json"
                 />
               </div>
-
-              <div className="mb-8">
-                <h3 className="text-lg font-medium text-black mb-4">
-                  {content.configuration.step4.title}
-                </h3>
-                <p className="text-base text-gray-700 mb-4">
-                  {content.configuration.step4.desc}
-                </p>
-                <CodeBlock
-                  code={`# ${
-                    language === "zh"
-                      ? "初始化配置"
-                      : "Initialize configuration"
-                  }\ndevmind init\n\n# ${
-                    language === "zh"
-                      ? "启动监控守护进程"
-                      : "Start monitoring daemon"
-                  }\ndevmind start`}
-                />
-              </div>
             </section>
 
             {/* 首次运行 */}
@@ -441,11 +395,6 @@ const GettingStartedPage: React.FC = () => {
                         <div className="text-sm text-gray-700 mt-1">
                           {step.desc}
                         </div>
-                        {index === 3 && (
-                          <div className="font-mono text-sm text-gray-700 mt-1 bg-gray-50 p-2 border border-gray-200">
-                            devmind start
-                          </div>
-                        )}
                       </div>
                     </li>
                   ))}
@@ -457,31 +406,20 @@ const GettingStartedPage: React.FC = () => {
                   {content.verification.outputTitle}
                 </h3>
                 <div className="font-mono text-sm text-gray-700 bg-gray-50 p-4 border border-gray-200">
-                  <div className="mb-2">$ devmind init</div>
-                  <div className="mb-2 text-green-600">
-                    Created config file: .devmind.json
-                  </div>
-                  <div className="mb-4"></div>
-                  <div className="mb-2">$ devmind start</div>
-                  <div className="mb-2 text-green-600">
-                    🚀{" "}
+                  <div className="mb-2">
                     {language === "zh"
-                      ? "启动 DevMind 守护进程..."
-                      : "Starting DevMind daemon..."}
+                      ? "✅ MCP 服务器已启动"
+                      : "✅ MCP Server Started"}
                   </div>
                   <div className="mb-2 text-green-600">
-                    ✅{" "}
                     {language === "zh"
-                      ? "守护进程启动成功"
-                      : "Daemon started successfully"}
+                      ? `🔧 ${PROJECT_INFO.toolCount} 个 MCP 工具已就绪`
+                      : `🔧 ${PROJECT_INFO.toolCount} MCP Tools Ready`}
                   </div>
-                  <div className="mb-2 text-green-600"> PID: 12345</div>
-                  <div className="mb-4"></div>
-                  <div className="mb-2">$ devmind status</div>
-                  <div className="text-green-600">
+                  <div className="text-gray-600">
                     {language === "zh"
-                      ? " 状态: ✅ 运行中"
-                      : " Status: ✅ Running"}
+                      ? "💡 在 AI 助手中尝试: 'use semantic_search to find...'"
+                      : "💡 Try in AI assistant: 'use semantic_search to find...'"}
                   </div>
                 </div>
               </div>
@@ -505,14 +443,16 @@ const GettingStartedPage: React.FC = () => {
                   </p>
                 </Link>
                 <Link
-                  to="/cli-reference"
+                  to="/configuration"
                   className="block p-6 border border-gray-300 hover:border-black transition-colors"
                 >
                   <h3 className="text-lg font-medium text-black mb-3">
-                    {content.nextSteps.cli.title}
+                    {language === "zh" ? "配置指南" : "Configuration Guide"}
                   </h3>
                   <p className="text-base text-gray-700">
-                    {content.nextSteps.cli.desc}
+                    {language === "zh"
+                      ? "了解高级配置选项和最佳实践"
+                      : "Learn advanced configuration options and best practices"}
                   </p>
                 </Link>
               </div>

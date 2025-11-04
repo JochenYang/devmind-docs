@@ -35,12 +35,6 @@ const Layout: React.FC<LayoutProps> = ({ children, onSearchClick }) => {
                 {t("nav.tools")}
               </Link>
               <Link
-                to="/cli-reference"
-                className="text-gray-600 hover:text-black transition-colors"
-              >
-                {t("nav.cliReference")}
-              </Link>
-              <Link
                 to="/configuration"
                 className="text-gray-600 hover:text-black transition-colors"
               >

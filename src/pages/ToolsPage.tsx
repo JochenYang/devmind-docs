@@ -129,14 +129,6 @@ const ToolsPage: React.FC = () => {
                     {language === "zh" ? "API参考" : "API Reference"}
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/cli-reference"
-                    className="text-sm text-gray-600 hover:text-black"
-                  >
-                    {language === "zh" ? "CLI参考" : "CLI Reference"}
-                  </Link>
-                </li>
               </ul>
             </div>
           </nav>
@@ -278,13 +270,6 @@ const ToolsPage: React.FC = () => {
                   className="text-red-600 hover:underline"
                 >
                   {language === "zh" ? "API参考" : "API Reference"}
-                </Link>
-                {language === "zh" ? " 和 " : " and "}
-                <Link
-                  to="/cli-reference"
-                  className="text-red-600 hover:underline"
-                >
-                  {language === "zh" ? "CLI参考" : "CLI Reference"}
                 </Link>
               </p>
             </section>
