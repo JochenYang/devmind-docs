@@ -11,9 +11,9 @@ const HomePage: React.FC = () => {
     language === "zh"
       ? [
           {
-            title: "自动记忆监控",
+            title: "智能自动记忆 (v2.0新功能)",
             description:
-              "监控文件变更、Git操作和搜索日志，将开发上下文自动沉淀为可检索记忆",
+              "AI自动评估内容价值并决定记忆，支持过程识别、价值评估和用户反馈学习",
           },
           {
             title: "混合搜索",
@@ -32,9 +32,9 @@ const HomePage: React.FC = () => {
         ]
       : [
           {
-            title: "Automatic Memory Monitoring",
+            title: "Intelligent Auto-Memory (v2.0 New)",
             description:
-              "Monitor file changes, Git operations and search logs, automatically consolidate development context into searchable memory",
+              "AI automatically evaluates content value and decides what to remember, with process recognition, value assessment and user feedback learning",
           },
           {
             title: "Hybrid Search",

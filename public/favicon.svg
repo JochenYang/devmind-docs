@@ -6,7 +6,10 @@
     </linearGradient>
   </defs>
   
-  <!-- Background -->
+  <!-- White background to prevent transparency issues -->
+  <rect width="100" height="100" fill="#ffffff"/>
+  
+  <!-- Rounded background with gradient -->
   <rect width="100" height="100" rx="20" fill="url(#grad)"/>
   
   <!-- Brain/Memory icon -->
