@@ -1,27 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Fuse from 'fuse.js';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface SearchResult {
   title: string;
+  titleEn?: string;
   content: string;
+  contentEn?: string;
   path: string;
   section?: string;
+  sectionEn?: string;
 }
 
 const searchData: SearchResult[] = [
   // 首页内容
   {
     title: 'DevMind MCP - 智能上下文感知记忆系统',
+    titleEn: 'DevMind MCP - Intelligent Context-Aware Memory System',
     content: 'DevMind MCP是一个智能的上下文感知记忆系统，专为AI助手设计，通过模型上下文协议为AI助手提供持久记忆能力。',
+    contentEn: 'DevMind MCP is an intelligent context-aware memory system designed for AI assistants, providing persistent memory capabilities through the Model Context Protocol.',
     path: '/',
-    section: '首页'
+    section: '首页',
+    sectionEn: 'Home'
   },
   {
     title: '核心特性',
-    content: '自动记忆监控、混合搜索、100%本地存储、18个MCP工具、跨平台兼容、AI驱动的项目分析、多语言支持、内存图可视化。',
+    titleEn: 'Core Features',
+    content: '自动记忆监控、混合搜索、00%本地存储、18个MCP工具、跨平台兼容、AI驱动的项目分析、多语言支持、内存图可视化。',
+    contentEn: 'Auto memory monitoring, hybrid search, 100% local storage, 18 MCP tools, cross-platform compatibility, AI-driven project analysis, multi-language support, memory graph visualization.',
     path: '/',
-    section: '特性'
+    section: '特性',
+    sectionEn: 'Features'
   },
   // 快速开始页面
   {
@@ -57,9 +67,12 @@ const searchData: SearchResult[] = [
   },
   {
     title: '上下文操作工具',
+    titleEn: 'Context Operations Tools',
     content: 'record_context、list_contexts、delete_context、update_context、extract_file_context、retrieve_context、search_contexts七个工具。',
+    contentEn: 'Seven tools: record_context, list_contexts, delete_context, update_context, extract_file_context, retrieve_context, search_contexts.',
     path: '/tools',
-    section: '上下文操作'
+    section: '上下文操作',
+    sectionEn: 'Context Operations'
   },
   // CLI参考页面
   {
@@ -102,9 +115,12 @@ const searchData: SearchResult[] = [
   },
   {
     title: '记录上下文API',
+    titleEn: 'Record Context API',
     content: 'record_context方法用于记录开发上下文，包含content、type、tags、metadata参数。',
+    contentEn: 'The record_context method is used to record development context, including content, type, tags, and metadata parameters.',
     path: '/api-reference',
-    section: '记录上下文'
+    section: '记录上下文',
+    sectionEn: 'Record Context'
   },
   {
     title: '语义搜索API',
@@ -163,6 +179,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
@@ -173,12 +190,20 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (query.trim()) {
       // 使用fuse.js进行模糊搜索
+      const searchKeys = language === 'zh' 
+        ? [
+            { name: 'title', weight: 0.4 },
+            { name: 'content', weight: 0.3 },
+            { name: 'section', weight: 0.3 }
+          ]
+        : [
+            { name: 'titleEn', weight: 0.4 },
+            { name: 'contentEn', weight: 0.3 },
+            { name: 'sectionEn', weight: 0.3 }
+          ];
+      
       const fuse = new Fuse(searchData, {
-        keys: [
-          { name: 'title', weight: 0.4 },
-          { name: 'content', weight: 0.3 },
-          { name: 'section', weight: 0.3 }
-        ],
+        keys: searchKeys,
         threshold: 0.3,
         includeScore: true,
         minMatchCharLength: 2
@@ -190,7 +215,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       setResults([]);
     }
     setSelectedIndex(0);
-  }, [query]);
+  }, [query, language]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
@@ -236,7 +261,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="搜索文档内容..."
+            placeholder={language === 'zh' ? '搜索文档内容...' : 'Search documentation...'}
             className="flex-1 text-lg outline-none"
           />
           <div className="text-sm text-gray-400 ml-3">
@@ -261,16 +286,16 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                       <div className="flex-1">
                         <div className="flex items-center mb-1">
                           <h3 className="text-sm font-medium text-gray-900 mr-2">
-                            {result.title}
+                            {language === 'zh' ? result.title : (result.titleEn || result.title)}
                           </h3>
-                          {result.section && (
+                          {(language === 'zh' ? result.section : (result.sectionEn || result.section)) && (
                             <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                              {result.section}
+                              {language === 'zh' ? result.section : (result.sectionEn || result.section)}
                             </span>
                           )}
                         </div>
                         <p className="text-sm text-gray-600 line-clamp-2">
-                          {result.content}
+                          {language === 'zh' ? result.content : (result.contentEn || result.content)}
                         </p>
                       </div>
                       <svg className="w-4 h-4 text-gray-400 ml-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,7 +310,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                 <svg className="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                <p className="text-sm">未找到相关内容</p>
+                <p className="text-sm">{language === 'zh' ? '未找到相关内容' : 'No results found'}</p>
               </div>
             )}
           </div>
@@ -296,12 +321,12 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
           <div className="p-4 border-t border-gray-200">
             <div className="text-xs text-gray-500 space-y-1">
               <div className="flex items-center justify-between">
-                <span>快速导航</span>
+                <span>{language === 'zh' ? '快速导航' : 'Quick navigation'}</span>
                 <div className="flex items-center space-x-2">
                   <kbd className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs">↑↓</kbd>
-                  <span>选择</span>
+                  <span>{language === 'zh' ? '选择' : 'Navigate'}</span>
                   <kbd className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs">Enter</kbd>
-                  <span>确认</span>
+                  <span>{language === 'zh' ? '确认' : 'Select'}</span>
                 </div>
               </div>
             </div>
