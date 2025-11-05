@@ -8,6 +8,7 @@ import ConfigurationPage from "./pages/ConfigurationPage";
 import ApiReferencePage from "./pages/ApiReferencePage";
 import UseCasesPage from "./pages/UseCasesPage";
 import FAQPage from "./pages/FAQPage";
+import AutoMemoryPage from "./pages/AutoMemoryPage";
 import SearchModal from "./components/SearchModal";
 import Layout from "./components/Layout";
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/api-reference" element={<ApiReferencePage />} />
             <Route path="/use-cases" element={<UseCasesPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/auto-memory" element={<AutoMemoryPage />} />
           </Routes>
 
           {/* 搜索模态框 */}

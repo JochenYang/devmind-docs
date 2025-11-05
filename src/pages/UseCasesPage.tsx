@@ -238,32 +238,48 @@ const UseCasesPage: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#software-development"
+                    href="#/use-cases#software-development"
                     className="text-sm text-gray-600 hover:text-black"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('software-development')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     {t("useCases.softwareDevelopment")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#research-learning"
+                    href="#/use-cases#research-learning"
                     className="text-sm text-gray-600 hover:text-black"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('research-learning')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     {t("useCases.researchLearning")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#project-management"
+                    href="#/use-cases#project-management"
                     className="text-sm text-gray-600 hover:text-black"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('project-management')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     {t("useCases.projectManagement")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#ai-enhancement"
+                    href="#/use-cases#ai-enhancement"
                     className="text-sm text-gray-600 hover:text-black"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('ai-enhancement')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     {t("useCases.aiEnhancement")}
                   </a>
@@ -362,15 +378,21 @@ const UseCasesPage: React.FC = () => {
             </section>
 
             {/* 详细使用场景 */}
-            {useCases.map((useCase, index) => (
-              <section
-                key={index}
-                id={useCase.title.toLowerCase().replace(/\s+/g, "-")}
-                className="mb-16"
-              >
-                <UseCaseCard useCase={useCase} />
-              </section>
-            ))}
+            <section id="software-development" className="mb-16">
+              <UseCaseCard useCase={useCases[0]} />
+            </section>
+            
+            <section id="research-learning" className="mb-16">
+              <UseCaseCard useCase={useCases[1]} />
+            </section>
+            
+            <section id="project-management" className="mb-16">
+              <UseCaseCard useCase={useCases[2]} />
+            </section>
+            
+            <section id="ai-enhancement" className="mb-16">
+              <UseCaseCard useCase={useCases[3]} />
+            </section>
 
             {/* 下一步 */}
             <section>

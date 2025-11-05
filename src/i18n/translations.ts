@@ -12,6 +12,7 @@ export const translations = {
       apiReference: "API参考",
       useCases: "使用场景",
       faq: "常见问题",
+      autoMemory: "智能记忆",
     },
     // 首页
     home: {
@@ -190,6 +191,7 @@ export const translations = {
       apiReference: "API Reference",
       useCases: "Use Cases",
       faq: "FAQ",
+      autoMemory: "Auto-Memory",
     },
     // Home
     home: {

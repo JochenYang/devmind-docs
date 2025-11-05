@@ -58,6 +58,12 @@ const Layout: React.FC<LayoutProps> = ({ children, onSearchClick }) => {
               >
                 {t("nav.faq")}
               </Link>
+              <Link
+                to="/auto-memory"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                {t("nav.autoMemory")}
+              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-4">
