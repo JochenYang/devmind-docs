@@ -95,6 +95,7 @@ export const MCP_TOOL_TRANSLATIONS: Record<string, string> = {
   会话管理: "Session Management",
   上下文操作: "Context Operations",
   项目分析: "Project Analysis",
+  可视化: "Visualization",
   内存优化: "Memory Optimization",
   系统状态: "System Status",
 };

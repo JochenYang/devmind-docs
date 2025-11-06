@@ -465,8 +465,8 @@ const FAQPage: React.FC = () => {
                   </h3>
                   <p className="text-base text-gray-700">
                     {language === "zh"
-                      ? "了解18个MCP工具的详细用法"
-                      : "Learn about 18 MCP tools in detail"}
+                      ? "了解14个MCP工具的详细用法"
+                      : "Learn about 14 MCP tools in detail"}
                   </p>
                 </Link>
               </div>

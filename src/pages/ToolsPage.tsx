@@ -190,8 +190,8 @@ const ToolsPage: React.FC = () => {
             </h1>
             <p className="text-xl text-gray-700 mb-12">
               {language === "zh"
-                ? "DevMind MCP提供18个工具，分为5大类，覆盖会话管理、上下文操作、项目分析、内存优化与系统状态。"
-                : "DevMind MCP provides 18 tools in 5 categories, covering session management, context operations, project analysis, memory optimization, and system status."}
+                ? "DevMind MCP提供14个工具，分为5大类，覆盖会话管理、上下文操作、项目分析、可视化与系统状态。"
+                : "DevMind MCP provides 14 tools in 5 categories, covering session management, context operations, project analysis, visualization, and system status."}
             </p>
 
             {/* 工具总览 */}

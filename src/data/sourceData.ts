@@ -90,7 +90,7 @@ export const MCP_TOOLS: MCPTool[] = [
     },
   },
 
-  // === 上下文操作 (7个工具) ===
+  // === 上下文操作 (6个工具) ===
   {
     name: "record_context",
     description: "记录开发上下文，支持丰富的元数据和智能质量过滤",
@@ -254,23 +254,6 @@ export const MCP_TOOLS: MCPTool[] = [
     },
   },
   {
-    name: "extract_file_context",
-    description: "从单个文件提取结构化元数据（类、函数、导入）",
-    category: "上下文操作",
-    inputSchema: {
-      type: "object",
-      properties: {
-        file_path: { type: "string", description: "文件路径" },
-        session_id: {
-          type: "string",
-          description: "可选的会话ID，用于记录上下文",
-        },
-        record: { type: "boolean", description: "是否记录提取的上下文" },
-      },
-      required: ["file_path"],
-    },
-  },
-  {
     name: "get_related_contexts",
     description: "获取与特定上下文相关的上下文",
     category: "上下文操作",
@@ -347,73 +330,11 @@ export const MCP_TOOLS: MCPTool[] = [
     },
   },
 
-  // === 内存优化 (4个工具) ===
-  {
-    name: "optimize_project_memory",
-    description: "优化项目内存存储和性能",
-    category: "内存优化",
-    inputSchema: {
-      type: "object",
-      properties: {
-        project_id: { type: "string", description: "要优化的项目ID" },
-        strategies: {
-          type: "array",
-          items: {
-            type: "string",
-            enum: [
-              "clustering",
-              "compression",
-              "deduplication",
-              "summarization",
-              "ranking",
-              "archiving",
-            ],
-          },
-          description: "要应用的优化策略（默认: all）",
-        },
-        dry_run: {
-          type: "boolean",
-          description: "预览而不应用更改（默认: false）",
-        },
-      },
-      required: ["project_id"],
-    },
-  },
-  {
-    name: "update_quality_scores",
-    description: "重新计算上下文的多维度质量分数（新鲜度、相关性、有用性）",
-    category: "内存优化",
-    inputSchema: {
-      type: "object",
-      properties: {
-        project_id: { type: "string", description: "可选的项目ID过滤" },
-        limit: { type: "number", description: "最大更新上下文数（默认: 100）" },
-        force_all: {
-          type: "boolean",
-          description: "强制更新所有上下文（默认: false）",
-        },
-      },
-      required: [],
-    },
-  },
-  {
-    name: "generate_embeddings",
-    description: "使用并行处理生成向量嵌入（快5倍）",
-    category: "内存优化",
-    inputSchema: {
-      type: "object",
-      properties: {
-        project_id: { type: "string", description: "可选的项目ID过滤" },
-        limit: { type: "number", description: "最大处理上下文数（默认: 50）" },
-        force_update: { type: "boolean", description: "更新现有嵌入" },
-      },
-      required: [],
-    },
-  },
+  // === 可视化 (1个工具) ===
   {
     name: "export_memory_graph",
     description: "将项目内存关系导出为交互式HTML可视化",
-    category: "内存优化",
+    category: "可视化",
     inputSchema: {
       type: "object",
       properties: {
@@ -465,8 +386,8 @@ export const PROJECT_INFO: ProjectInfo = {
   description: "AI助手记忆系统 - 纯 MCP 工具",
   license: "MIT",
   repository: "https://github.com/JochenYang/Devmind",
-  nodeVersion: ">=18.0.0",
-  toolCount: 18,
+  nodeVersion: ">=20.0.0",
+  toolCount: 14,
   features: [
     {
       title: "智能记忆管理",
@@ -483,7 +404,7 @@ export const PROJECT_INFO: ProjectInfo = {
       description: "使用SQLite进行本地存储，零云端传输，完全隐私保护",
     },
     {
-      title: "18个MCP工具",
+      title: "14个MCP工具",
       description: "提供完整的记忆管理和项目分析工具包，覆盖全流程",
     },
   ],
@@ -492,9 +413,9 @@ export const PROJECT_INFO: ProjectInfo = {
 // 工具分类统计
 export const TOOL_CATEGORIES = {
   会话管理: 4,
-  上下文操作: 7,
+  上下文操作: 6,
   项目分析: 2,
-  内存优化: 4,
+  可视化: 1,
   系统状态: 1,
 };
 

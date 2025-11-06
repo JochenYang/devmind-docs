@@ -27,8 +27,8 @@ const searchData: SearchResult[] = [
   {
     title: '核心特性',
     titleEn: 'Core Features',
-    content: '自动记忆监控、混合搜索、00%本地存储、18个MCP工具、跨平台兼容、AI驱动的项目分析、多语言支持、内存图可视化。',
-    contentEn: 'Auto memory monitoring, hybrid search, 100% local storage, 18 MCP tools, cross-platform compatibility, AI-driven project analysis, multi-language support, memory graph visualization.',
+    content: '类型化三层自动记忆、混合搜索、100%本地存储、14个MCP工具、跨平台兼容、AI驱动的项目分析、多语言支持、内存图可视化。',
+    contentEn: 'Type-based 3-tier auto-memory, hybrid search, 100% local storage, 14 MCP tools, cross-platform compatibility, AI-driven project analysis, multi-language support, memory graph visualization.',
     path: '/',
     section: '特性',
     sectionEn: 'Features'
@@ -42,9 +42,12 @@ const searchData: SearchResult[] = [
   },
   {
     title: '系统要求',
-    content: 'Node.js >= 18.0.0、MCP兼容客户端、操作系统支持。',
+    titleEn: 'System Requirements',
+    content: 'Node.js >= 20.0.0、MCP兼容客户端、操作系统支持。',
+    contentEn: 'Node.js >= 20.0.0, MCP compatible clients, operating system support.',
     path: '/getting-started',
-    section: '系统要求'
+    section: '系统要求',
+    sectionEn: 'System Requirements'
   },
   {
     title: '安装方式',
@@ -55,9 +58,12 @@ const searchData: SearchResult[] = [
   // MCP工具页面
   {
     title: 'MCP工具',
-    content: 'DevMind MCP提供18个工具，分为5大类：会话管理、上下文操作、项目分析、内存优化与系统状态。',
+    titleEn: 'MCP Tools',
+    content: 'DevMind MCP提供14个工具，分为5大类：会话管理、上下文操作、项目分析、可视化与系统状态。',
+    contentEn: 'DevMind MCP provides 14 tools in 5 categories: session management, context operations, project analysis, visualization, and system status.',
     path: '/tools',
-    section: 'MCP工具'
+    section: 'MCP工具',
+    sectionEn: 'MCP Tools'
   },
   {
     title: '会话管理工具',
@@ -68,8 +74,8 @@ const searchData: SearchResult[] = [
   {
     title: '上下文操作工具',
     titleEn: 'Context Operations Tools',
-    content: 'record_context、list_contexts、delete_context、update_context、extract_file_context、retrieve_context、search_contexts七个工具。',
-    contentEn: 'Seven tools: record_context, list_contexts, delete_context, update_context, extract_file_context, retrieve_context, search_contexts.',
+    content: 'record_context、semantic_search、list_contexts、delete_context、update_context、get_related_contexts六个工具。支持三层自动记忆和混合搜索。',
+    contentEn: 'Six tools: record_context, semantic_search, list_contexts, delete_context, update_context, get_related_contexts. Supports three-tier auto-memory and hybrid search.',
     path: '/tools',
     section: '上下文操作',
     sectionEn: 'Context Operations'
@@ -146,6 +152,43 @@ const searchData: SearchResult[] = [
     content: '为AI提供持久记忆，维护对话上下文，存储用户偏好，支持长期AI关系建立。',
     path: '/use-cases',
     section: 'AI助手增强'
+  },
+  // 智能记忆页面
+  {
+    title: '类型化三层自动记忆',
+    titleEn: 'Type-Based 3-Tier Auto-Memory',
+    content: '基于内容类型直接决定记忆行为，决策速度提升50倍，内存使用减少15%。支持三层记忆策略：静默自动记录、通知后自动记录、默认不记录。',
+    contentEn: 'Direct memory decision based on content type, 50x faster decision speed, 15% less memory usage. Supports three-tier strategy: silent auto-record, notify auto-record, default skip.',
+    path: '/auto-memory',
+    section: '智能记忆',
+    sectionEn: 'Auto-Memory'
+  },
+  {
+    title: '第1层：静默自动记录',
+    titleEn: 'Tier 1: Silent Auto-Record',
+    content: '技术执行类 - 自动记录，无需确认。包括bug_fix、feature_add、code_modify、code_refactor等类型。',
+    contentEn: 'Technical execution - Auto-record without confirmation. Includes bug_fix, feature_add, code_modify, code_refactor types.',
+    path: '/auto-memory',
+    section: '三层策略',
+    sectionEn: 'Three-Tier Strategy'
+  },
+  {
+    title: '第2层：通知后自动记录',
+    titleEn: 'Tier 2: Notify Auto-Record',
+    content: '设计方案类 - 自动记录，提供删除选项。包拯solution、design、learning等类型。',
+    contentEn: 'Design & solutions - Auto-record with delete option. Includes solution, design, learning types.',
+    path: '/auto-memory',
+    section: '三层策略',
+    sectionEn: 'Three-Tier Strategy'
+  },
+  {
+    title: '后台质量更新',
+    titleEn: 'Background Quality Update',
+    content: '懒加载策略，在semantic_search时触发，24小时周期更新，非阻塞异步执行。',
+    contentEn: 'Lazy-loading strategy, triggered during semantic_search, 24-hour cycle, non-blocking async execution.',
+    path: '/auto-memory',
+    section: '质量管理',
+    sectionEn: 'Quality Management'
   },
   // 常见问题页面
   {

@@ -11,9 +11,9 @@ const HomePage: React.FC = () => {
     language === "zh"
       ? [
           {
-            title: "智能自动记忆 (v2.0新功能)",
+            title: "类型化三层自动记忆",
             description:
-              "AI自动评估内容价值并决定记忆，支持过程识别、价值评估和用户反馈学习",
+              "基于内容类型直接决定记忆行为，决策速度50倍提升，内存使用减少15%",
           },
           {
             title: "混合搜索",
@@ -25,16 +25,16 @@ const HomePage: React.FC = () => {
             description: "使用SQLite本地存储，零云端传输，完全掌控隐私数据",
           },
           {
-            title: "18个MCP工具",
+            title: "14个MCP工具",
             description:
               "提供完整的记忆管理和项目分析工具包，覆盖全流程开发场景",
           },
         ]
       : [
           {
-            title: "Intelligent Auto-Memory (v2.0 New)",
+            title: "Type-Based 3-Tier Auto-Memory",
             description:
-              "AI automatically evaluates content value and decides what to remember, with process recognition, value assessment and user feedback learning",
+              "Direct memory decision based on content type, 50x faster decision speed, 15% less memory usage",
           },
           {
             title: "Hybrid Search",
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
               "Use SQLite local storage, zero cloud transmission, full privacy control",
           },
           {
-            title: "18 MCP Tools",
+            title: "14 MCP Tools",
             description:
               "Complete memory management and project analysis toolkit covering full development scenarios",
           },
@@ -161,8 +161,8 @@ const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-sm text-gray-600 mb-4">
                   {language === "zh"
-                    ? "在Claude Desktop等MCP客户端中使用18个智能工具"
-                    : "Use 18 intelligent tools in Claude Desktop and other MCP clients"}
+                    ? "在Claude Desktop等MCP客户端中使用14个智能工具"
+                    : "Use 14 intelligent tools in Claude Desktop and other MCP clients"}
                 </p>
               </div>
               <div className="text-left mb-6">
@@ -189,8 +189,8 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="text-sm text-gray-600 mb-2">
                   {language === "zh"
-                    ? "即可使用18个MCP工具"
-                    : "Use 18 MCP tools"}
+                    ? "即可使用14个MCP工具"
+                    : "Use 14 MCP tools"}
                 </div>
               </div>
               <div className="text-left">
