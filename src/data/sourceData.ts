@@ -254,15 +254,18 @@ export const MCP_TOOLS: MCPTool[] = [
     },
   },
   {
-    name: "get_related_contexts",
-    description: "获取与特定上下文相关的上下文",
+    name: "get_context",
+    description: "根据ID获取完整记忆内容（支持批量查询），或查找相关上下文关系",
     category: "上下文操作",
     inputSchema: {
       type: "object",
       properties: {
-        context_id: {
-          type: "string",
-          description: "要查找相关上下文的上下文ID",
+        context_ids: {
+          oneOf: [
+            { type: "string" },
+            { type: "array", items: { type: "string" } },
+          ],
+          description: "单个上下文ID或ID数组（支持批量查询）",
         },
         relation_type: {
           type: "string",
@@ -274,10 +277,10 @@ export const MCP_TOOLS: MCPTool[] = [
             "tests",
             "documents",
           ],
-          description: "可选的特定关系类型",
+          description: "可选：查找特定关系类型（不提供则返回完整内容）",
         },
       },
-      required: ["context_id"],
+      required: ["context_ids"],
     },
   },
 

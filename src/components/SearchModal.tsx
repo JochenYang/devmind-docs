@@ -74,8 +74,8 @@ const searchData: SearchResult[] = [
   {
     title: '上下文操作工具',
     titleEn: 'Context Operations Tools',
-    content: 'record_context、semantic_search、list_contexts、delete_context、update_context、get_related_contexts六个工具。支持三层自动记忆和混合搜索。',
-    contentEn: 'Six tools: record_context, semantic_search, list_contexts, delete_context, update_context, get_related_contexts. Supports three-tier auto-memory and hybrid search.',
+    content: 'record_context、semantic_search、list_contexts、delete_context、update_context、get_context六个工具。支持三层自动记忆、混合搜索和批量查询。',
+    contentEn: 'Six tools: record_context, semantic_search, list_contexts, delete_context, update_context, get_context. Supports three-tier auto-memory, hybrid search, and batch queries.',
     path: '/tools',
     section: '上下文操作',
     sectionEn: 'Context Operations'
