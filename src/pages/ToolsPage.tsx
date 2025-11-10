@@ -54,7 +54,7 @@ const ToolsPage: React.FC = () => {
             )}
           </div>
           {param.description && (
-            <p className="text-sm text-gray-600 mt-1">{param.description}</p>
+            <p className="text-sm text-gray-600 mt-1">{translate(param.description)}</p>
           )}
           <div className="text-xs text-gray-500 mt-1">
             <span className="font-medium">
